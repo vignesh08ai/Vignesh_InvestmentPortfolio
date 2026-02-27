@@ -10,19 +10,19 @@
   --surface3:  #1f2d42;
   --border:    #1e2d44;
   --border2:   #2a3d5a;
-  --accent:    #00d4ff;
-  --accent2:   #6c63ff;
-  --accent3:   #00ff94;
-  --teal:      #00c896;
+  --accent:    #00e676;
+  --accent2:   #1db954;
+  --accent3:   #69f0ae;
+  --teal:      #00c853;
   --red:       #ff4d6d;
-  --gold:      #ffd166;
+  --gold:      #b9f6ca;
   --text:      #e8f0fe;
   --text2:     #a8bcd0;
   --muted:     #5a7a9a;
   --dim:       #3a5470;
   --shadow:    0 2px 8px rgba(0,0,0,0.4), 0 8px 32px rgba(0,0,0,0.25);
-  --shadow2:   0 8px 40px rgba(0,212,255,0.12);
-  --glow:      0 0 20px rgba(0,212,255,0.2);
+  --shadow2:   0 8px 40px rgba(0,230,118,0.12);
+  --glow:      0 0 20px rgba(0,230,118,0.2);
   --fn: 'Times New Roman', Times, serif;
   --fm: 'Times New Roman', Times, serif;
   --radius: 12px;
@@ -39,8 +39,8 @@ body {
   font-size: 14px;
   line-height: 1.5;
   background-image:
-    radial-gradient(ellipse at 20% 10%, rgba(0,212,255,0.04) 0%, transparent 50%),
-    radial-gradient(ellipse at 80% 80%, rgba(108,99,255,0.04) 0%, transparent 50%);
+    radial-gradient(ellipse at 20% 10%, rgba(0,230,118,0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(29,185,84,0.04) 0%, transparent 50%);
 }
 
 ::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -76,7 +76,7 @@ body {
   background: linear-gradient(135deg, var(--accent), var(--accent2));
   display: flex; align-items: center; justify-content: center;
   font-size: 18px; flex-shrink: 0;
-  box-shadow: 0 0 16px rgba(0,212,255,0.3);
+  box-shadow: 0 0 16px rgba(0,230,118,0.3);
 }
 .brand-name { font-size: 16px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
 .brand-sub { font-size: 11px; color: var(--muted); font-family: var(--fm); }
@@ -89,7 +89,7 @@ body {
   font-family: var(--fn); font-size: 12px; font-weight: 700;
   cursor: pointer; transition: all 0.2s; letter-spacing: 0.5px; text-transform: uppercase;
 }
-.refresh-btn:hover { background: rgba(0,212,255,0.1); box-shadow: var(--glow); transform: translateY(-1px); }
+.refresh-btn:hover { background: rgba(0,230,118,0.1); box-shadow: var(--glow); transform: translateY(-1px); }
 .refresh-btn.loading { opacity: 0.5; pointer-events: none; }
 .refresh-btn svg { transition: transform 0.5s; }
 .refresh-btn.loading svg { animation: spin 1s linear infinite; }
@@ -119,7 +119,7 @@ body {
 }
 .nav-item:hover { background: var(--surface2); color: var(--text2); }
 .nav-item.active {
-  background: rgba(0,212,255,0.08); color: var(--accent); font-weight: 700;
+  background: rgba(0,230,118,0.08); color: var(--accent); font-weight: 700;
   border-left: 2px solid var(--accent); padding-left: 10px;
 }
 .nav-item .icon { font-size: 15px; width: 20px; text-align: center; }
@@ -128,7 +128,7 @@ body {
   font-size: 9px; font-family: var(--fm); padding: 2px 6px;
   border-radius: 99px; border: 1px solid var(--border);
 }
-.nav-item.active .nav-badge { background: rgba(0,212,255,0.12); color: var(--accent); border-color: rgba(0,212,255,0.3); }
+.nav-item.active .nav-badge { background: rgba(0,230,118,0.12); color: var(--accent); border-color: rgba(0,230,118,0.3); }
 
 .main { flex: 1; padding: 24px 28px; min-width: 0; }
 
@@ -195,7 +195,7 @@ body {
   font-family: var(--fm); font-size: 12px; color: var(--text); background: var(--surface2);
   outline: none; width: 200px; transition: border-color 0.2s, box-shadow 0.2s;
 }
-.search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,212,255,0.1); }
+.search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,230,118,0.1); }
 .search-input::placeholder { color: var(--dim); }
 select.filter-sel {
   padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius2);
@@ -232,11 +232,11 @@ tr:hover td { background: rgba(255,255,255,0.02); }
   display: inline-flex; align-items: center; padding: 3px 8px;
   border-radius: 99px; font-size: 10px; font-weight: 700; font-family: var(--fm); white-space: nowrap;
 }
-.chip.gain { background: rgba(0,200,150,0.15); color: var(--teal); border: 1px solid rgba(0,200,150,0.2); }
+.chip.gain { background: rgba(0,200,83,0.15); color: var(--teal); border: 1px solid rgba(0,200,83,0.2); }
 .chip.loss { background: rgba(255,77,109,0.12); color: var(--red); border: 1px solid rgba(255,77,109,0.2); }
-.chip.blue { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.2); }
-.chip.gold { background: rgba(255,209,102,0.1); color: var(--gold); border: 1px solid rgba(255,209,102,0.2); }
-.chip.active { background: rgba(0,200,150,0.12); color: var(--teal); border: 1px solid rgba(0,200,150,0.2); }
+.chip.blue { background: rgba(0,230,118,0.1); color: var(--accent); border: 1px solid rgba(0,230,118,0.2); }
+.chip.gold { background: rgba(185,246,202,0.1); color: var(--gold); border: 1px solid rgba(185,246,202,0.2); }
+.chip.active { background: rgba(0,200,83,0.12); color: var(--teal); border: 1px solid rgba(0,200,83,0.2); }
 .chip.mono { font-family: var(--fm); }
 
 .live-val { display: flex; flex-direction: column; gap: 1px; }
@@ -312,16 +312,16 @@ tr:hover td { background: rgba(255,255,255,0.02); }
   max-width: 360px; letter-spacing: 0.3px;
 }
 .toast.show { opacity: 1; transform: translateY(0); }
-.toast.success { border-color: rgba(0,200,150,0.4); color: var(--teal); }
+.toast.success { border-color: rgba(0,200,83,0.4); color: var(--teal); }
 .toast.error   { border-color: rgba(255,77,109,0.4); color: var(--red); }
-.toast.warning { border-color: rgba(255,209,102,0.4); color: var(--gold); }
-.toast.info    { border-color: rgba(0,212,255,0.3); color: var(--accent); }
+.toast.warning { border-color: rgba(185,246,202,0.4); color: var(--gold); }
+.toast.info    { border-color: rgba(0,230,118,0.3); color: var(--accent); }
 
 .export-bar {
-  background: rgba(255,209,102,0.05);
-  border: 1px solid rgba(255,209,102,0.18);
+  background: rgba(185,246,202,0.05);
+  border: 1px solid rgba(185,246,202,0.18);
   border-radius: var(--radius2); padding: 10px 14px;
-  font-size: 11px; color: rgba(255,209,102,0.8);
+  font-size: 11px; color: rgba(185,246,202,0.8);
   display: flex; align-items: center; gap: 10px;
   margin-bottom: 14px; flex-wrap: wrap; font-family: var(--fm);
 }
@@ -384,7 +384,7 @@ tr:hover td { background: rgba(255,255,255,0.02); }
   font-family: var(--fm); font-size: 12px; color: var(--text); background: var(--surface2);
   outline: none; transition: border-color .2s, box-shadow .2s; width: 100%;
 }
-.form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,212,255,0.1); }
+.form-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,230,118,0.1); }
 .form-input::placeholder { color: var(--dim); }
 .form-select {
   padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius2);
@@ -425,32 +425,32 @@ tr:hover td { background: rgba(255,255,255,0.02); }
   font-size: 10px; font-weight: 700; cursor: pointer; transition: all .2s;
   white-space: nowrap; text-transform: uppercase; letter-spacing: 0.5px;
 }
-.btn-add:hover { background: rgba(0,212,255,0.1); box-shadow: 0 0 12px rgba(0,212,255,0.2); transform: translateY(-1px); }
+.btn-add:hover { background: rgba(0,230,118,0.1); box-shadow: 0 0 12px rgba(0,230,118,0.2); transform: translateY(-1px); }
 .btn-excel-import {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 7px 12px; background: transparent; color: var(--teal);
-  border: 1px solid rgba(0,200,150,0.4); border-radius: var(--radius2);
+  border: 1px solid rgba(0,200,83,0.4); border-radius: var(--radius2);
   font-family: var(--fm); font-size: 10px; font-weight: 700;
   cursor: pointer; transition: all .2s; white-space: nowrap;
   text-transform: uppercase; letter-spacing: 0.4px;
 }
-.btn-excel-import:hover { background: rgba(0,200,150,0.1); }
+.btn-excel-import:hover { background: rgba(0,200,83,0.1); }
 .btn-excel-export {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 7px 12px; background: transparent; color: var(--gold);
-  border: 1px solid rgba(255,209,102,0.4); border-radius: var(--radius2);
+  border: 1px solid rgba(185,246,202,0.4); border-radius: var(--radius2);
   font-family: var(--fm); font-size: 10px; font-weight: 700;
   cursor: pointer; transition: all .2s; white-space: nowrap;
   text-transform: uppercase; letter-spacing: 0.4px;
 }
-.btn-excel-export:hover { background: rgba(255,209,102,0.1); }
+.btn-excel-export:hover { background: rgba(185,246,202,0.1); }
 .row-actions { display: flex; gap: 5px; }
 .btn-edit, .btn-del {
   padding: 3px 9px; border-radius: 5px; font-size: 10px;
   font-weight: 700; font-family: var(--fm); cursor: pointer;
   border: none; transition: all .15s; text-transform: uppercase; letter-spacing: 0.3px;
 }
-.btn-edit { background: rgba(0,212,255,0.1); color: var(--accent); border: 1px solid rgba(0,212,255,0.2); }
+.btn-edit { background: rgba(0,230,118,0.1); color: var(--accent); border: 1px solid rgba(0,230,118,0.2); }
 .btn-edit:hover { background: var(--accent); color: var(--bg); }
 .btn-del  { background: rgba(255,77,109,0.08); color: var(--red); border: 1px solid rgba(255,77,109,0.15); }
 .btn-del:hover  { background: var(--red); color: #fff; }
@@ -503,13 +503,13 @@ thead th:first-child { background: var(--surface2); }
   padding: 28px; text-align: center; cursor: pointer;
   transition: all 0.2s; background: var(--surface2);
 }
-.excel-drop-zone:hover, .excel-drop-zone.drag-over { border-color: var(--teal); background: rgba(0,200,150,0.05); }
+.excel-drop-zone:hover, .excel-drop-zone.drag-over { border-color: var(--teal); background: rgba(0,200,83,0.05); }
 .excel-drop-zone .drop-icon { font-size: 30px; margin-bottom: 8px; }
 .excel-drop-zone .drop-text { font-size: 12px; color: var(--text2); font-family: var(--fm); }
 .excel-drop-zone .drop-hint { font-size: 10px; color: var(--muted); margin-top: 4px; font-family: var(--fm); }
 
 .excel-template-note {
-  background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.2);
+  background: rgba(0,230,118,0.05); border: 1px solid rgba(0,230,118,0.2);
   border-radius: var(--radius2); padding: 10px 14px; font-size: 11px;
   color: var(--accent); margin-top: 12px; font-family: var(--fm);
 }
