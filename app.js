@@ -94,12 +94,14 @@ async function fetchYF(sym) {
 /* ═══════════════════════════════════════════════════════  CALCULATIONS  */
 function calcMF(mf) {
   const live = LIVE[mf.schemeCode];
-  const curNAV = live ? live.price : mf.purchaseNAV;
+  const curNAV = live ? live.price : (mf.currentNAV || mf.purchaseNAV);
   const curVal = curNAV * mf.units;
   const gl = curVal - mf.invested;
-  const prevNAV = live?.prev || mf.purchaseNAV;
+  // For daily GL: use live prev if available, else fall back to stored currentNAV (last saved NAV),
+  // else use curNAV itself (so daily GL = 0 rather than a misleading number)
+  const prevNAV = live?.prev || mf.currentNAV || curNAV;
   const prevVal = prevNAV * mf.units;
-  const dailyGL = curVal - prevVal;
+  const dailyGL = live ? (curVal - prevVal) : 0;
   return { curNAV, curVal, gl, ret:(gl/mf.invested)*100, dailyGL, isLive:!!live };
 }
 function calcStock(s) {
@@ -107,9 +109,9 @@ function calcStock(s) {
   const curPrice = live ? live.price : s.avgPrice;
   const curVal = curPrice * s.units;
   const gl = curVal - s.invested;
-  const prevPrice = live?.prev || s.avgPrice;
+  const prevPrice = live?.prev || curPrice;
   const prevVal = prevPrice * s.units;
-  const dailyGL = curVal - prevVal;
+  const dailyGL = live ? (curVal - prevVal) : 0;
   return { curPrice, curVal, gl, ret:(gl/s.invested)*100, dailyGL, isLive:!!live };
 }
 function calcGold(g) {
@@ -118,9 +120,9 @@ function calcGold(g) {
   const curPrice = live ? live.price : g.purchasePrice;
   const curVal = useManual ? g.manualCurrentValue : (curPrice * g.units);
   const gl = curVal - g.invested;
-  const prevPrice = live?.prev || g.purchasePrice;
+  const prevPrice = live?.prev || curPrice;
   const prevVal = prevPrice * g.units;
-  const dailyGL = useManual ? 0 : (curVal - prevVal);
+  const dailyGL = (useManual || !live) ? 0 : (curVal - prevVal);
   return { curPrice, curVal, gl, ret:(gl/g.invested)*100, dailyGL, isManual:useManual, isLive:!!live };
 }
 function calcFD(fd) {
