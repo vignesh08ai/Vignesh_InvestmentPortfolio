@@ -277,6 +277,20 @@ function buildDashboard(el) {
         <div class="dash-stat-sub">${PORTFOLIO.fixedDeposits.length+PORTFOLIO.mutualFunds.length+(PORTFOLIO.stocks||[]).length+(PORTFOLIO.gold||[]).length} total holdings</div>
       </div>
     </div>
+    <div class="chart-card" style="margin-bottom:14px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div class="chart-card-title" style="margin-bottom:0">🎯 Goal Tracker — ₹1 Crore</div>
+        <div style="font-family:'Times New Roman',Times,serif;font-size:11px;color:var(--muted)">
+          <span style="color:var(--teal);font-weight:700">${fmtINR(tot.cur)}</span>
+          <span style="margin:0 6px">of</span>
+          <span style="color:var(--gold);font-weight:700">₹1,00,00,000</span>
+          <span style="margin-left:10px;color:${tot.cur>=1e7?'var(--teal)':'var(--accent)'}">
+            ${tot.cur>=1e7?'🏆 Goal Achieved!':'₹'+((1e7-tot.cur)/1e5).toFixed(1)+'L remaining'}
+          </span>
+        </div>
+      </div>
+      <canvas id="dbGoal" height="72"></canvas>
+    </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
       <div class="chart-card">
         <div class="chart-card-title">Asset Class Performance</div>
@@ -304,6 +318,44 @@ function buildDashboard(el) {
     const tc='rgba(168,188,208,0.7)';
     const gc='rgba(255,255,255,0.04)';
     const bf={family:"'Space Mono',monospace",size:10};
+
+    const GOAL = 1e7; // ₹1 Crore
+    const pct = Math.min((tot.cur / GOAL) * 100, 100);
+    const remaining = Math.max(GOAL - tot.cur, 0);
+    newChart('dbGoal','bar',{
+      labels:['Invested','Current Value','Remaining to Goal','Goal (₹1 Cr)'],
+      datasets:[{
+        label:'Amount',
+        data:[tot.inv, tot.cur, remaining, GOAL],
+        backgroundColor:['rgba(0,212,255,0.25)','rgba(0,200,150,0.4)','rgba(255,209,102,0.2)','rgba(108,99,255,0.15)'],
+        borderColor:['rgba(0,212,255,0.8)','rgba(0,200,150,0.9)','rgba(255,209,102,0.7)','rgba(108,99,255,0.6)'],
+        borderWidth:1,borderRadius:6
+      }]
+    },{
+      indexAxis:'y',
+      scales:{
+        x:{ticks:{color:tc,font:{size:9},callback:v=>shortINR(v)},grid:{color:gc},max:GOAL*1.05},
+        y:{ticks:{color:tc,font:{size:10,family:"'Times New Roman',Times,serif"}},grid:{display:false}}
+      },
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:c=>{
+          const v=fmtINR(c.raw);
+          if(c.label==='Current Value') return `${v} (${pct.toFixed(1)}% of goal)`;
+          if(c.label==='Remaining to Goal') return `${v} to reach ₹1 Crore`;
+          return v;
+        }}},
+        annotation:{
+          annotations:{
+            goalLine:{
+              type:'line',xMin:GOAL,xMax:GOAL,
+              borderColor:'rgba(108,99,255,0.8)',borderWidth:2,borderDash:[5,4],
+              label:{content:'₹1 Cr Goal',enabled:true,color:'rgba(108,99,255,1)',font:{size:9}}
+            }
+          }
+        }
+      }
+    });
 
     newChart('dbPie','doughnut',{labels,datasets:[{data:at.map(a=>a.inv),backgroundColor:pal,borderWidth:2,borderColor:'rgba(17,24,39,1)'}]},
       {cutout:'60%',plugins:{legend:{position:'right',labels:{color:tc,font:bf,boxWidth:10,padding:10}},tooltip:{callbacks:{label:c=>`${c.label}: ${fmtINR(c.raw)}`}}}});
