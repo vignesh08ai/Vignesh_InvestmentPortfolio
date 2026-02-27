@@ -289,7 +289,7 @@ function buildDashboard(el) {
           </span>
         </div>
       </div>
-      <canvas id="dbGoal" height="72"></canvas>
+      <canvas id="dbGoal" height="100"></canvas>
     </div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
       <div class="chart-card">
@@ -321,39 +321,56 @@ function buildDashboard(el) {
 
     const GOAL = 1e7; // ₹1 Crore
     const pct = Math.min((tot.cur / GOAL) * 100, 100);
-    const remaining = Math.max(GOAL - tot.cur, 0);
-    newChart('dbGoal','bar',{
-      labels:['Invested','Current Value','Remaining to Goal','Goal (₹1 Cr)'],
-      datasets:[{
-        label:'Amount',
-        data:[tot.inv, tot.cur, remaining, GOAL],
-        backgroundColor:['rgba(0,212,255,0.25)','rgba(0,200,150,0.4)','rgba(255,209,102,0.2)','rgba(108,99,255,0.15)'],
-        borderColor:['rgba(0,212,255,0.8)','rgba(0,200,150,0.9)','rgba(255,209,102,0.7)','rgba(108,99,255,0.6)'],
-        borderWidth:1,borderRadius:6
-      }]
+    const milestones = [0, 2000000, 4000000, 6000000, 8000000, GOAL];
+    const milestoneLabels = ['₹0','₹20L','₹40L','₹60L','₹80L','₹1 Cr'];
+    newChart('dbGoal','line',{
+      labels: milestoneLabels,
+      datasets:[
+        {
+          label:'Goal Path',
+          data: milestones,
+          borderColor:'rgba(108,99,255,0.5)',
+          backgroundColor:'rgba(108,99,255,0.06)',
+          borderWidth:1, borderDash:[5,4],
+          pointRadius:0, fill:true, tension:0.4
+        },
+        {
+          label:'Invested',
+          data: [0, null, null, null, null, tot.inv],
+          borderColor:'rgba(0,212,255,0.8)',
+          backgroundColor:'rgba(0,212,255,0.12)',
+          borderWidth:2, pointRadius:[0,0,0,0,0,5],
+          pointBackgroundColor:'rgba(0,212,255,1)',
+          fill:true, tension:0.4, spanGaps:true
+        },
+        {
+          label:'Current Value',
+          data: milestones.map(m => m <= tot.cur ? m : (m === milestones.find(x => x > tot.cur) ? tot.cur : null)),
+          borderColor:'rgba(0,200,150,0.9)',
+          backgroundColor:'rgba(0,200,150,0.18)',
+          borderWidth:2.5, pointRadius:0, fill:true, tension:0.4, spanGaps:true,
+          segment:{borderColor:ctx=>ctx.p1.parsed.y>=tot.cur?'rgba(255,209,102,0.8)':'rgba(0,200,150,0.9)'}
+        }
+      ]
     },{
-      indexAxis:'y',
       scales:{
-        x:{ticks:{color:tc,font:{size:9},callback:v=>shortINR(v)},grid:{color:gc},max:GOAL*1.05},
-        y:{ticks:{color:tc,font:{size:10,family:"'Times New Roman',Times,serif"}},grid:{display:false}}
+        x:{ticks:{color:tc,font:{size:10,family:"'Times New Roman',Times,serif"}},grid:{color:gc}},
+        y:{
+          ticks:{color:tc,font:{size:9},callback:v=>shortINR(v)},
+          grid:{color:gc}, min:0, max:GOAL*1.05
+        }
       },
       plugins:{
-        legend:{display:false},
-        tooltip:{callbacks:{label:c=>{
-          const v=fmtINR(c.raw);
-          if(c.label==='Current Value') return `${v} (${pct.toFixed(1)}% of goal)`;
-          if(c.label==='Remaining to Goal') return `${v} to reach ₹1 Crore`;
-          return v;
-        }}},
-        annotation:{
-          annotations:{
-            goalLine:{
-              type:'line',xMin:GOAL,xMax:GOAL,
-              borderColor:'rgba(108,99,255,0.8)',borderWidth:2,borderDash:[5,4],
-              label:{content:'₹1 Cr Goal',enabled:true,color:'rgba(108,99,255,1)',font:{size:9}}
-            }
+        legend:{labels:{color:tc,font:{size:10,family:"'Times New Roman',Times,serif"},boxWidth:10,padding:12}},
+        tooltip:{callbacks:{
+          label:c=>{
+            if(c.dataset.label==='Goal Path') return null;
+            const v=fmtINR(c.raw);
+            if(c.dataset.label==='Current Value') return `Current: ${v} (${pct.toFixed(1)}% of ₹1 Cr)`;
+            if(c.dataset.label==='Invested') return `Invested: ${v}`;
+            return v;
           }
-        }
+        }}
       }
     });
 
