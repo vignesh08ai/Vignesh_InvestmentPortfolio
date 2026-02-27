@@ -21,8 +21,8 @@ const YF   = 'https://query1.finance.yahoo.com/v8/finance/chart/';
 
 const STORAGE_KEY = 'portfolio_data_v1';
 const GITHUB_TOKEN_KEY = 'github_token';
-const GITHUB_REPO = 'vignesh08ai/InvestmentPortfolio_Vignesh';
-const GITHUB_FILE_PATH = 'data/portfolio.json';
+const GITHUB_REPO = 'vignesh08ai/Vignesh_InvestmentPortfolio';
+const GITHUB_FILE_PATH = 'portfolio.json';
 const COLUMN_VISIBILITY_KEY = 'column_visibility_v1';
 
 /* ═══════════════════════════════════════════════════════  BOOT  */
@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (saved) {
       PORTFOLIO = JSON.parse(saved);
     } else {
-      PORTFOLIO = await fetch('./data/portfolio.json').then(r => r.json());
+      PORTFOLIO = await fetch('./portfolio.json').then(r => r.json());
     }
     buildNav();
     buildSummaryCards();
