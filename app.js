@@ -142,7 +142,7 @@ function getAssetTotals() {
   const groups = [
     { label:'Fixed Deposits', icon:'🏛', items:PORTFOLIO.fixedDeposits,
       sum:items=>items.reduce((a,i)=>{const c=calcFD(i);return{inv:a.inv+i.invested,cur:a.cur+c.curVal,dgl:a.dgl+c.dailyGL};},{inv:0,cur:0,dgl:0})},
-    { label:'MF — Mahesh', icon:'📈', items:PORTFOLIO.mutualFunds.filter(m=>m.owner==='Mahesh'),
+    { label:'MF — Wealthlite', icon:'📈', items:PORTFOLIO.mutualFunds.filter(m=>m.owner==='Mahesh'),
       sum:items=>items.reduce((a,i)=>{const c=calcMF(i);return{inv:a.inv+i.invested,cur:a.cur+c.curVal,dgl:a.dgl+c.dailyGL};},{inv:0,cur:0,dgl:0})},
     { label:'MF — Family', icon:'👨‍👩‍👧', items:PORTFOLIO.mutualFunds.filter(m=>m.owner==='Family'),
       sum:items=>items.reduce((a,i)=>{const c=calcMF(i);return{inv:a.inv+i.invested,cur:a.cur+c.curVal,dgl:a.dgl+c.dailyGL};},{inv:0,cur:0,dgl:0})},
@@ -181,7 +181,7 @@ function updateSummaryCards() {
   setCard('sc-gl',(tot.gl>=0?'+':'')+fmtINR(tot.gl),tot.ret.toFixed(2)+'% return',tot.gl>=0?'gain':'loss',tot.gl>=0?'gain':'loss');
   setCard('sc-dgl',(tot.dgl>=0?'+':'')+fmtINR(tot.dgl),'Today\'s movement',tot.dgl>=0?'gain':'loss',tot.dgl>=0?'gain':'loss');
   const fd=at.find(a=>a.label==='Fixed Deposits');
-  const mfm=at.find(a=>a.label==='MF — Mahesh'), mff=at.find(a=>a.label==='MF — Family');
+  const mfm=at.find(a=>a.label==='MF — Wealthlite'), mff=at.find(a=>a.label==='MF — Family');
   const nse=at.find(a=>a.label==='Indian Equity'), nas=at.find(a=>a.label==='US Equity');
   const gld=at.find(a=>a.label==='Gold / SGB');
   if(fd) setCard('sc-fd',fmtINR(fd.cur),'+'+fd.ret.toFixed(2)+'% accrued','gain','gain');
@@ -253,30 +253,7 @@ function showPanel(id) {
 /* ═══════════════════════════════════════════════════════  DASHBOARD  */
 function buildDashboard(el) {
   const at=getAssetTotals(), tot=getPortfolioTotal();
-  const dglCls = tot.dgl>=0 ? 'gain' : 'loss';
   el.innerHTML=`
-    <div class="dash-stats-row">
-      <div class="dash-stat" style="border-top:2px solid var(--accent)">
-        <div class="dash-stat-label">Total Value</div>
-        <div class="dash-stat-value">${fmtINR(tot.cur)}</div>
-        <div class="dash-stat-sub">Invested ${fmtINR(tot.inv)}</div>
-      </div>
-      <div class="dash-stat" style="border-top:2px solid ${tot.gl>=0?'var(--teal)':'var(--red)'}">
-        <div class="dash-stat-label">Total Gain / Loss</div>
-        <div class="dash-stat-value ${tot.gl>=0?'gain':'loss'}">${tot.gl>=0?'+':''}${fmtINR(tot.gl)}</div>
-        <div class="dash-stat-sub ${tot.gl>=0?'gain':'loss'}">${tot.ret.toFixed(2)}% return</div>
-      </div>
-      <div class="dash-stat" style="border-top:2px solid ${tot.dgl>=0?'var(--accent3)':'var(--red)'}">
-        <div class="dash-stat-label">Daily Gain / Loss</div>
-        <div class="dash-stat-value ${dglCls}">${tot.dgl>=0?'+':''}${fmtINR(tot.dgl)}</div>
-        <div class="dash-stat-sub ${dglCls}">Today's movement</div>
-      </div>
-      <div class="dash-stat" style="border-top:2px solid var(--gold)">
-        <div class="dash-stat-label">Asset Classes</div>
-        <div class="dash-stat-value">${at.length}</div>
-        <div class="dash-stat-sub">${PORTFOLIO.fixedDeposits.length+PORTFOLIO.mutualFunds.length+(PORTFOLIO.stocks||[]).length+(PORTFOLIO.gold||[]).length} total holdings</div>
-      </div>
-    </div>
     <div class="chart-card" style="margin-bottom:14px">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
         <div class="chart-card-title" style="margin-bottom:0">🎯 Goal Tracker — ₹1 Crore</div>
