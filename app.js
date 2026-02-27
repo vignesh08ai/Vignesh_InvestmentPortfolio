@@ -200,7 +200,7 @@ function buildNav() {
   const panels=[
     {id:'dashboard',  label:'Dashboard',     icon:'🏠'},
     {id:'fd',         label:'Fixed Deposits',icon:'🏛',  count:PORTFOLIO.fixedDeposits.length},
-    {id:'mf-mahesh',  label:'MF — Mahesh',   icon:'📈',  count:PORTFOLIO.mutualFunds.filter(m=>m.owner==='Mahesh').length},
+    {id:'mf-mahesh',  label:'MF — Wealthlite', icon:'📈',  count:PORTFOLIO.mutualFunds.filter(m=>m.owner==='Mahesh').length},
     {id:'mf-family',  label:'MF — Family',   icon:'👨‍👩‍👧', count:PORTFOLIO.mutualFunds.filter(m=>m.owner==='Family').length},
     {id:'stocks-nse', label:'Indian Equity', icon:'📊',  count:PORTFOLIO.stocks.filter(s=>s.exchange!=='NASDAQ').length},
     {id:'stocks-nas', label:'US Equity',     icon:'🇺🇸', count:PORTFOLIO.stocks.filter(s=>s.exchange==='NASDAQ').length},
@@ -406,7 +406,7 @@ function buildMFPanel(el,owner) {
   ];
   const rows=PORTFOLIO.mutualFunds.filter(m=>m.owner===owner);
   const visibleCols = filterVisibleColumns(id, cols);
-  el.innerHTML=mkPageHeader('MF — '+owner, rows.length+' funds', rows, calcMF)
+  el.innerHTML=mkPageHeader('MF — Wealthlite', rows.length+' funds', rows, calcMF)
     +mkControls(id,true,'mf',owner,cols,'mf')
     +mkTable(id,visibleCols);
   renderTable(id,visibleCols,rows);
