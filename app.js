@@ -291,7 +291,7 @@ function buildDashboard(el) {
     </div>`;
   setTimeout(()=>{
     const labels=at.map(a=>a.label);
-    const pal=['#00d4ff','#6c63ff','#00c896','#ffd166','#ff4d6d','#b45309'];
+    const pal=['#00e676','#1db954','#00c853','#b9f6ca','#ff4d6d','#00c853'];
     const tc='rgba(168,188,208,0.7)';
     const gc='rgba(255,255,255,0.04)';
     const bf={family:"'Space Mono',monospace",size:10};
@@ -306,27 +306,27 @@ function buildDashboard(el) {
         {
           label:'Goal Path',
           data: milestones,
-          borderColor:'rgba(108,99,255,0.5)',
-          backgroundColor:'rgba(108,99,255,0.06)',
+          borderColor:'rgba(29,185,84,0.5)',
+          backgroundColor:'rgba(29,185,84,0.06)',
           borderWidth:1, borderDash:[5,4],
           pointRadius:0, fill:true, tension:0.4
         },
         {
           label:'Invested',
           data: [0, null, null, null, null, tot.inv],
-          borderColor:'rgba(0,212,255,0.8)',
-          backgroundColor:'rgba(0,212,255,0.12)',
+          borderColor:'rgba(0,230,118,0.8)',
+          backgroundColor:'rgba(0,230,118,0.12)',
           borderWidth:2, pointRadius:[0,0,0,0,0,5],
-          pointBackgroundColor:'rgba(0,212,255,1)',
+          pointBackgroundColor:'rgba(0,230,118,1)',
           fill:true, tension:0.4, spanGaps:true
         },
         {
           label:'Current Value',
           data: milestones.map(m => m <= tot.cur ? m : (m === milestones.find(x => x > tot.cur) ? tot.cur : null)),
-          borderColor:'rgba(0,200,150,0.9)',
-          backgroundColor:'rgba(0,200,150,0.18)',
+          borderColor:'rgba(0,200,83,0.9)',
+          backgroundColor:'rgba(0,200,83,0.18)',
           borderWidth:2.5, pointRadius:0, fill:true, tension:0.4, spanGaps:true,
-          segment:{borderColor:ctx=>ctx.p1.parsed.y>=tot.cur?'rgba(255,209,102,0.8)':'rgba(0,200,150,0.9)'}
+          segment:{borderColor:ctx=>ctx.p1.parsed.y>=tot.cur?'rgba(185,246,202,0.8)':'rgba(0,200,83,0.9)'}
         }
       ]
     },{
@@ -355,14 +355,14 @@ function buildDashboard(el) {
       {cutout:'60%',plugins:{legend:{position:'right',labels:{color:tc,font:bf,boxWidth:10,padding:10}},tooltip:{callbacks:{label:c=>`${c.label}: ${fmtINR(c.raw)}`}}}});
 
     newChart('dbBar','bar',{labels,datasets:[
-      {label:'Invested',data:at.map(a=>a.inv),backgroundColor:'rgba(0,212,255,0.2)',borderColor:'rgba(0,212,255,0.5)',borderWidth:1,borderRadius:4},
-      {label:'Current',data:at.map(a=>a.cur),backgroundColor:at.map(a=>a.gl>=0?'rgba(0,200,150,0.35)':'rgba(255,77,109,0.3)'),borderColor:at.map(a=>a.gl>=0?'var(--teal)':'var(--red)'),borderWidth:1,borderRadius:4}
+      {label:'Invested',data:at.map(a=>a.inv),backgroundColor:'rgba(0,230,118,0.2)',borderColor:'rgba(0,230,118,0.5)',borderWidth:1,borderRadius:4},
+      {label:'Current',data:at.map(a=>a.cur),backgroundColor:at.map(a=>a.gl>=0?'rgba(0,200,83,0.35)':'rgba(255,77,109,0.3)'),borderColor:at.map(a=>a.gl>=0?'var(--teal)':'var(--red)'),borderWidth:1,borderRadius:4}
     ]},{scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,callback:v=>shortINR(v)},grid:{color:gc}}},plugins:{legend:{labels:{color:tc,font:bf}},tooltip:{callbacks:{label:c=>fmtINR(c.raw)}}}});
 
-    newChart('dbRet','bar',{labels,datasets:[{label:'Return %',data:at.map(a=>a.ret),backgroundColor:at.map(a=>a.gl>=0?'rgba(0,200,150,0.35)':'rgba(255,77,109,0.3)'),borderColor:at.map(a=>a.gl>=0?'var(--teal)':'var(--red)'),borderWidth:1,borderRadius:4}]},
+    newChart('dbRet','bar',{labels,datasets:[{label:'Return %',data:at.map(a=>a.ret),backgroundColor:at.map(a=>a.gl>=0?'rgba(0,200,83,0.35)':'rgba(255,77,109,0.3)'),borderColor:at.map(a=>a.gl>=0?'var(--teal)':'var(--red)'),borderWidth:1,borderRadius:4}]},
       {scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,callback:v=>v.toFixed(1)+'%'},grid:{color:gc}}},plugins:{legend:{labels:{color:tc,font:bf}},tooltip:{callbacks:{label:c=>c.raw.toFixed(2)+'%'}}}});
 
-    newChart('dbDailyGL','bar',{labels,datasets:[{label:'Daily GL',data:at.map(a=>a.dgl),backgroundColor:at.map(a=>a.dgl>=0?'rgba(0,255,148,0.25)':'rgba(255,77,109,0.25)'),borderColor:at.map(a=>a.dgl>=0?'var(--accent3)':'var(--red)'),borderWidth:1,borderRadius:4}]},
+    newChart('dbDailyGL','bar',{labels,datasets:[{label:'Daily GL',data:at.map(a=>a.dgl),backgroundColor:at.map(a=>a.dgl>=0?'rgba(0,230,118,0.25)':'rgba(255,77,109,0.25)'),borderColor:at.map(a=>a.dgl>=0?'var(--accent3)':'var(--red)'),borderWidth:1,borderRadius:4}]},
       {scales:{x:{ticks:{color:tc,font:{size:9}},grid:{color:gc}},y:{ticks:{color:tc,callback:v=>shortINR(v)},grid:{color:gc}}},plugins:{legend:{labels:{color:tc,font:bf}},tooltip:{callbacks:{label:c=>`Daily: ${fmtINR(c.raw)}`}}}});
 
     newChart('dbDoughnut2','doughnut',{labels,datasets:[{data:at.map(a=>a.cur),backgroundColor:pal,borderWidth:2,borderColor:'rgba(17,24,39,1)'}]},
@@ -598,7 +598,7 @@ function mkControls(id,hasFilter,addType,addMeta,cols,excelType) {
   return `
   <div class="export-bar">
     <span>⚠ Changes saved in browser.</span>
-    <button onclick="syncToGitHub()" style="padding:6px 14px;background:transparent;color:var(--teal);border:1px solid rgba(0,200,150,0.4);border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;font-family:var(--fm);text-transform:uppercase;letter-spacing:0.5px">SYNC GITHUB</button>
+    <button onclick="syncToGitHub()" style="padding:6px 14px;background:transparent;color:var(--teal);border:1px solid rgba(0,200,83,0.4);border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;font-family:var(--fm);text-transform:uppercase;letter-spacing:0.5px">SYNC GITHUB</button>
     <button onclick="exportJSON()" style="padding:6px 14px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:6px;font-size:10px;font-weight:700;cursor:pointer;font-family:var(--fm);text-transform:uppercase;letter-spacing:0.5px">DL JSON</button>
   </div>
   <div class="ctrl-bar">
