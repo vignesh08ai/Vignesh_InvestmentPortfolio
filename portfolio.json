@@ -686,17 +686,17 @@
       "name": "Invesco QQQ ETF (NASDAQ 100)",
       "symbol": "QQQ",
       "exchange": "NASDAQ",
-      "units": 0.17059,
-      "avgPrice": 611.42,
-      "invested": 104.3
+      "units": 0.187321,
+      "avgPrice": 610.09,
+      "invested": 114.28
     },
     {
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.107453,
-      "avgPrice": 631.35,
-      "invested": 67.84
+      "units": 0.115486,
+      "avgPrice": 630.64,
+      "invested": 72.83
     },
     {
       "name": "Oracle",
@@ -739,14 +739,6 @@
       "invested": 5892
     },
     {
-      "name": "Microchip",
-      "symbol": "MCHP",
-      "exchange": "NASDAQ",
-      "units": 0.127634,
-      "avgPrice": 78.19,
-      "invested": 9.98
-    },
-    {
       "name": "Wipro",
       "symbol": "Wipro.NS",
       "exchange": "NSE",
@@ -769,6 +761,14 @@
       "units": 0.108425,
       "avgPrice": 138.07,
       "invested": 14.97
+    },
+    {
+      "name": "FTSE Developed Market Index",
+      "symbol": "VEA",
+      "exchange": "NASDAQ",
+      "units": 0.303026,
+      "avgPrice": 65.8,
+      "invested": 19.94
     }
   ],
   "gold": [
