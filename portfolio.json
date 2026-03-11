@@ -476,9 +476,9 @@
       "name": "IDFC FIRST BANK LIMITED",
       "symbol": "IDFCFIRSTB.NS",
       "exchange": "NSE",
-      "units": 60,
-      "avgPrice": 65.23,
-      "invested": 3914
+      "units": 65,
+      "avgPrice": 65.29,
+      "invested": 4243.85
     },
     {
       "name": "ITC LIMITED",
@@ -548,9 +548,9 @@
       "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
       "symbol": "ARE&M.NS",
       "exchange": "NSE",
-      "units": 6,
-      "avgPrice": 607.32,
-      "invested": 3643.9
+      "units": 10,
+      "avgPrice": 827.17,
+      "invested": 8271.7
     },
     {
       "name": "ITC LIMITED",
@@ -596,9 +596,9 @@
       "name": "ICICI Pru Nifty FMCG ETF",
       "symbol": "FMCGIETF.NS",
       "exchange": "NSE",
-      "units": 80,
-      "avgPrice": 54.85,
-      "invested": 4387.99
+      "units": 105,
+      "avgPrice": 54.43,
+      "invested": 5715.04
     },
     {
       "name": "Nippon India ETF Gold BeES",
@@ -612,17 +612,17 @@
       "name": "Nippon India ETF Nifty IT",
       "symbol": "ITBEES.NS",
       "exchange": "NSE",
-      "units": 102,
-      "avgPrice": 40.24,
-      "invested": 4104.92
+      "units": 137,
+      "avgPrice": 38.43,
+      "invested": 5265.47
     },
     {
       "name": "ITC LIMITED",
       "symbol": "ITC.NS",
       "exchange": "NSE",
-      "units": 17,
-      "avgPrice": 340.23,
-      "invested": 5783.95
+      "units": 20,
+      "avgPrice": 334.84,
+      "invested": 6696.85
     },
     {
       "name": "NATCO PHARMA LIMITED",
@@ -636,9 +636,9 @@
       "name": "REC LIMITED",
       "symbol": "RECLTD.NS",
       "exchange": "NSE",
-      "units": 25,
-      "avgPrice": 367.43,
-      "invested": 9185.65
+      "units": 15,
+      "avgPrice": 369.87,
+      "invested": 5548
     },
     {
       "name": "Zee Entertainment Enterprises Limited",
@@ -700,9 +700,9 @@
       "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
       "symbol": "TMCV.NS",
       "exchange": "NSE",
-      "units": 35,
-      "avgPrice": 327.26,
-      "invested": 11454
+      "units": 40,
+      "avgPrice": 343.3,
+      "invested": 13732.13
     },
     {
       "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
@@ -724,9 +724,9 @@
       "name": "Wipro",
       "symbol": "Wipro.NS",
       "exchange": "NSE",
-      "units": 27,
-      "avgPrice": 204.16,
-      "invested": 5512.5
+      "units": 30,
+      "avgPrice": 203.16,
+      "invested": 6094.95
     },
     {
       "name": "TCS",
@@ -751,6 +751,30 @@
       "units": 0.303026,
       "avgPrice": 65.8,
       "invested": 19.94
+    },
+    {
+      "name": "Movalue",
+      "symbol": "MOVALUE.NSE",
+      "exchange": "NSE",
+      "units": 2,
+      "avgPrice": 127.8,
+      "invested": 255.6
+    },
+    {
+      "name": "MOREALTY",
+      "symbol": "MOREALTY.NSE",
+      "exchange": "NSE",
+      "units": 5,
+      "avgPrice": 72.52,
+      "invested": 362.6
+    },
+    {
+      "name": "MOVALUE",
+      "symbol": "MOVALUE.NSE",
+      "exchange": "NSE",
+      "units": 15,
+      "avgPrice": 118.18,
+      "invested": 1772.75
     }
   ],
   "gold": [
