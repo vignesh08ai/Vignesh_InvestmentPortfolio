@@ -306,9 +306,9 @@
       "name": "Kotak Large & Midcap Fund",
       "schemeCode": "120158",
       "owner": "Family",
-      "units": 123.517,
-      "purchaseNAV": 386.16,
-      "invested": 47698.436
+      "units": 128.604,
+      "purchaseNAV": 386.44,
+      "invested": 49698.23
     },
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
@@ -327,9 +327,9 @@
       "name": "Parag Parikh Flexi Cap Fund",
       "schemeCode": "122639",
       "owner": "Family",
-      "units": 529.977,
+      "units": 552.1,
       "purchaseNAV": 90.56,
-      "invested": 47997.367
+      "invested": 49997.51
     },
     {
       "name": "Quant ELSS Tax Saver Fund",
@@ -347,15 +347,10 @@
     {
       "name": "Zerodha Gold ETF FoF-Direct Plan - Growth Option",
       "schemeCode": "153011",
-      "folioNumber": "",
       "owner": "Family",
-      "units": 721.885,
-      "purchaseNAV": 18.7,
-      "invested": 13499.2495,
-      "currentNAV": 20.0776,
-      "currentValue": 14493.7183,
-      "gainLoss": 994.4688,
-      "returnPct": 7.3668
+      "units": 793.727,
+      "purchaseNAV": 18.9,
+      "invested": 14999.3
     },
     {
       "name": "ICICI PRUDENTIAL MULTI ASSET FUND",
@@ -460,14 +455,6 @@
       "units": 15,
       "avgPrice": 722.27,
       "invested": 10834.05
-    },
-    {
-      "name": "EXIDE INDUSTRIES LIMITED",
-      "symbol": "EXIDEIND.NS",
-      "exchange": "NSE",
-      "units": 37,
-      "avgPrice": 348.87,
-      "invested": 12908.19
     },
     {
       "name": "THE FEDERAL BANK LTD",
