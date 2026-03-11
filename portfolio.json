@@ -423,28 +423,18 @@
     {
       "name": "Motilal Oswal Gold and Silver ETFs FoF Dir-Gth",
       "schemeCode": "150642",
-      "folioNumber": "",
       "owner": "Family",
-      "units": 308.057,
-      "purchaseNAV": 28.57,
-      "invested": 8801.1885,
-      "currentNAV": 31.6028,
-      "currentValue": 9735.4638,
-      "gainLoss": 934.2753,
-      "returnPct": 10.6153
+      "units": 322.672,
+      "purchaseNAV": 28.82,
+      "invested": 9299.55
     },
     {
       "name": "SUNDARAM MID CAP FUND",
       "schemeCode": "119581",
-      "folioNumber": "",
       "owner": "Family",
-      "units": 11.199,
-      "purchaseNAV": 1562.37,
-      "invested": 17497.03,
-      "currentNAV": 1570.6812,
-      "currentValue": 17590.0588,
-      "gainLoss": 93.0288,
-      "returnPct": 0.5317
+      "units": 12.195,
+      "purchaseNAV": 1557.75,
+      "invested": 18996.71
     }
   ],
   "stocks": [
