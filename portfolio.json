@@ -313,15 +313,10 @@
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
       "schemeCode": "135781",
-      "folioNumber": "",
       "owner": "Family",
       "units": 2203.927,
       "purchaseNAV": 38.34,
-      "invested": 84498.5612,
-      "currentNAV": 57.4,
-      "currentValue": 126505.4098,
-      "gainLoss": 42006.8486,
-      "returnPct": 49.7131
+      "invested": 84501.65
     },
     {
       "name": "Parag Parikh Flexi Cap Fund",
@@ -658,17 +653,17 @@
       "name": "Invesco QQQ ETF (NASDAQ 100)",
       "symbol": "QQQ",
       "exchange": "NASDAQ",
-      "units": 0.187321,
-      "avgPrice": 610.09,
-      "invested": 114.28
+      "units": 0.195705,
+      "avgPrice": 609.45,
+      "invested": 119.27
     },
     {
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.131503,
-      "avgPrice": 629.72,
-      "invested": 82.81
+      "units": 0.147788,
+      "avgPrice": 627.86,
+      "invested": 92.79
     },
     {
       "name": "Oracle",
@@ -744,7 +739,7 @@
     },
     {
       "name": "Movalue",
-      "symbol": "MOVALUE.NSE",
+      "symbol": "MOVALUE.NS",
       "exchange": "NSE",
       "units": 2,
       "avgPrice": 127.8,
@@ -752,7 +747,7 @@
     },
     {
       "name": "MOREALTY",
-      "symbol": "MOREALTY.NSE",
+      "symbol": "MOREALTY.NS",
       "exchange": "NSE",
       "units": 5,
       "avgPrice": 72.52,
@@ -760,7 +755,7 @@
     },
     {
       "name": "MOVALUE",
-      "symbol": "MOVALUE.NSE",
+      "symbol": "MOVALUE.NS",
       "exchange": "NSE",
       "units": 15,
       "avgPrice": 118.18,
