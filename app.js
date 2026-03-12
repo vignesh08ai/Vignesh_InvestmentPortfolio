@@ -29,7 +29,9 @@ let _yfCrumb = null;
 async function fetchWithProxy(url, options={}) {
   for (const proxy of CORS_PROXIES) {
     try {
-      const res = await fetch(proxy + encodeURIComponent(url), {
+      // allorigins uses ?url= so needs encoding; others append directly
+      const proxyUrl = proxy + encodeURIComponent(url);
+      const res = await fetch(proxyUrl, {
         ...options,
         signal: AbortSignal.timeout(10000)
       });
@@ -37,6 +39,20 @@ async function fetchWithProxy(url, options={}) {
     } catch(e) {}
   }
   throw new Error('All proxies failed');
+}
+
+/* Sanitise Yahoo Finance symbol — fix known bad symbols and encoding issues */
+function fixSymbol(sym) {
+  const fixes = {
+    'ARE&M.NS':   'AMARAJABAT.NS',   // & breaks URLs; use correct Yahoo ticker
+    'TMPV.NS':    'TATAMTRDVR.NS',   // Tata Motors DVR
+    'TMCV.NS':    'TATAMOTORS.NS',   // Tata Motors
+    'SOUTHBANK.NS': 'SOUTHBANK.NS',  // OK as-is
+  };
+  // Lowercase fix
+  const upper = sym.toUpperCase();
+  const mapped = fixes[sym] || fixes[upper];
+  return mapped || upper;
 }
 
 /* Get Yahoo Finance crumb — required since 2024 */
@@ -161,15 +177,15 @@ async function fetchStockAndGoldPrices() {
   await Promise.allSettled(syms.map(fetchYF));
 }
 function getUsdInr() { return LIVE['USDINR=X']?.price || 84; }
-async function fetchYF(sym) {
-  // Try multiple Yahoo Finance endpoints + crumb
+async function fetchYF(origSym) {
+  const sym = fixSymbol(origSym);
   const crumb = await getYFCrumb();
   const crumbParam = crumb ? `&crumb=${encodeURIComponent(crumb)}` : '';
   const endpoints = [
-    `${YF}${sym}?interval=1d&range=5d${crumbParam}`,
-    `${YF2}${sym}?interval=1d&range=5d${crumbParam}`,
-    `${YF}${sym}?interval=1d&range=2d`,
-    `${YF2}${sym}?interval=1d&range=2d`,
+    `${YF}${encodeURIComponent(sym)}?interval=1d&range=5d${crumbParam}`,
+    `${YF2}${encodeURIComponent(sym)}?interval=1d&range=5d${crumbParam}`,
+    `${YF}${encodeURIComponent(sym)}?interval=1d&range=2d`,
+    `${YF2}${encodeURIComponent(sym)}?interval=1d&range=2d`,
   ];
   for (const url of endpoints) {
     try {
@@ -183,13 +199,15 @@ async function fetchYF(sym) {
       if (meta && (meta.regularMarketPrice || meta.previousClose)) {
         const price = meta.regularMarketPrice || meta.previousClose;
         const prev  = meta.chartPreviousClose || meta.regularMarketPreviousClose || meta.previousClose;
-        LIVE[sym] = { price, prev, change: price-prev, changePct:((price-prev)/prev)*100 };
-        console.log(`[YF ✓] ${sym}: ${price}`);
+        // Store under ORIGINAL symbol so calcStock/calcGold can find it
+        LIVE[origSym] = { price, prev, change: price-prev, changePct:((price-prev)/prev)*100 };
+        if (sym !== origSym) LIVE[sym] = LIVE[origSym]; // also store fixed key
+        console.log(`[YF ✓] ${origSym}${sym!==origSym?' (as '+sym+')':''}: ${price}`);
         return;
       }
     } catch(e) {}
   }
-  console.warn(`[YF ✗] ${sym}: all endpoints failed`);
+  console.warn(`[YF ✗] ${origSym}: all endpoints failed`);
 }
 
 /* ═══════════════════════════════════════════════════════  CALCULATIONS  */
