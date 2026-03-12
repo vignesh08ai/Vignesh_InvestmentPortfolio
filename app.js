@@ -20,7 +20,7 @@ let _editType   = null;
    Set PROXY_URL to your deployed Google Apps Script URL
    e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
 ═══════════════════════════════════════════════════════ */
-const PROXY_URL = '';  // ← PASTE YOUR APPS SCRIPT URL HERE
+const PROXY_URL = const PROXY_URL = 'https://script.google.com/macros/s/YOUR_ID/exec'; // ← PASTE YOUR APPS SCRIPT URL HERE
 
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 
