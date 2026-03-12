@@ -15,63 +15,113 @@ let chartStore  = {};
 let _editIdx    = null;
 let _editType   = null;
 
-const CORS_PROXIES = [
-  'https://corsproxy.io/?',
-  'https://api.allorigins.win/raw?url=',
-  'https://thingproxy.freeboard.io/fetch/',
-];
+/* ═══════════════════════════════════════════════════════
+   LIVE DATA CONFIG
+   Set PROXY_URL to your deployed Google Apps Script URL
+   e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
+═══════════════════════════════════════════════════════ */
+const PROXY_URL = '';  // ← PASTE YOUR APPS SCRIPT URL HERE
+
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
-const YF   = 'https://query1.finance.yahoo.com/v8/finance/chart/';
-const YF2  = 'https://query2.finance.yahoo.com/v8/finance/chart/';
 
-let _yfCrumb = null;
+/* Symbol corrections for Yahoo Finance */
+const SYMBOL_FIXES = {
+  'ARE&M.NS':   'AMARAJABAT.NS',
+  'TMPV.NS':    'TATAMTRDVR.NS',
+  'TMCV.NS':    'TATAMOTORS.NS',
+  'goldbees.ns':'GOLDBEES.NS',
+};
+function fixSymbol(sym) {
+  const up = sym.toUpperCase();
+  return SYMBOL_FIXES[sym] || SYMBOL_FIXES[up] || up;
+}
 
-async function fetchWithProxy(url, options={}) {
-  for (const proxy of CORS_PROXIES) {
+/* ═══════════════════════════════════════════════════════  LIVE DATA  */
+async function fetchAllLiveData() {
+  if (PROXY_URL) {
+    await fetchAllViaProxy();
+  } else {
+    // Fallback: direct fetch (works for mfapi.in which has open CORS)
+    await Promise.allSettled([fetchMFNavsDirect(), fetchStocksDirect()]);
+  }
+}
+
+/* ── PROXY PATH (Google Apps Script) ── */
+async function fetchAllViaProxy() {
+  const mfCodes = [...new Set(PORTFOLIO.mutualFunds.map(m => m.schemeCode))];
+  const rawSyms = [...new Set([
+    ...(PORTFOLIO.stocks||[]).map(s => s.symbol),
+    ...(PORTFOLIO.gold||[]).map(g => g.symbol),
+    'USDINR=X'
+  ])];
+  const stocks = rawSyms.map(fixSymbol);
+  // Keep mapping from fixed→original so we can store under original key
+  const fixMap = {};
+  rawSyms.forEach(s => { fixMap[fixSymbol(s)] = s; });
+
+  try {
+    const res = await fetch(PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ mfCodes, stocks }),
+      signal: AbortSignal.timeout(30000)
+    });
+    if (!res.ok) throw new Error('Proxy returned ' + res.status);
+    const json = await res.json();
+    if (json.status !== 'ok') throw new Error(json.message);
+    const data = json.data || {};
+
+    // MF NAVs
+    mfCodes.forEach(code => {
+      if (data[code]) LIVE[code] = data[code];
+    });
+    // Stocks (store under original symbol)
+    stocks.forEach(sym => {
+      if (data[sym]) {
+        const origSym = fixMap[sym] || sym;
+        LIVE[origSym] = data[sym];
+        if (origSym !== sym) LIVE[sym] = data[sym];
+      }
+    });
+    console.log('[PROXY] Live data loaded:', Object.keys(LIVE).length, 'symbols');
+  } catch(e) {
+    console.error('[PROXY] Failed:', e.message);
+    // Fallback to direct
+    await Promise.allSettled([fetchMFNavsDirect(), fetchStocksDirect()]);
+  }
+}
+
+/* ── DIRECT PATH (no proxy, uses mfapi.in for MFs) ── */
+async function fetchMFNavsDirect() {
+  const codes = [...new Set(PORTFOLIO.mutualFunds.map(m => m.schemeCode))];
+  let hits = 0;
+  await Promise.allSettled(codes.map(async code => {
     try {
-      // allorigins uses ?url= so needs encoding; others append directly
-      const proxyUrl = proxy + encodeURIComponent(url);
-      const res = await fetch(proxyUrl, {
-        ...options,
+      const res = await fetch(`https://api.mfapi.in/mf/${code}/latest`, {
         signal: AbortSignal.timeout(10000)
       });
-      if (res.ok) return res;
+      if (!res.ok) return;
+      const json = await res.json();
+      const nav = parseFloat(json?.data?.[0]?.nav);
+      const prevNav = parseFloat(json?.data?.[1]?.nav);
+      if (!isNaN(nav) && nav > 0) {
+        const mf = PORTFOLIO.mutualFunds.find(m => m.schemeCode === code);
+        const prev = (!isNaN(prevNav) && prevNav > 0) ? prevNav : (mf?.currentNAV || nav);
+        LIVE[code] = { price: nav, prev };
+        hits++;
+      }
     } catch(e) {}
-  }
-  throw new Error('All proxies failed');
+  }));
+  console.log(`[MF Direct] ${hits}/${codes.length} NAVs loaded`);
 }
 
-/* Sanitise Yahoo Finance symbol — fix known bad symbols and encoding issues */
-function fixSymbol(sym) {
-  const fixes = {
-    'ARE&M.NS':   'AMARAJABAT.NS',   // & breaks URLs; use correct Yahoo ticker
-    'TMPV.NS':    'TATAMTRDVR.NS',   // Tata Motors DVR
-    'TMCV.NS':    'TATAMOTORS.NS',   // Tata Motors
-    'SOUTHBANK.NS': 'SOUTHBANK.NS',  // OK as-is
-  };
-  // Lowercase fix
-  const upper = sym.toUpperCase();
-  const mapped = fixes[sym] || fixes[upper];
-  return mapped || upper;
+async function fetchStocksDirect() {
+  // Without a proxy, Yahoo Finance blocks browser requests.
+  // Stocks will show as cached until PROXY_URL is configured.
+  console.warn('[Stocks] No proxy configured — stocks will show cached prices. Set PROXY_URL in app.js.');
 }
 
-/* Get Yahoo Finance crumb — required since 2024 */
-async function getYFCrumb() {
-  if (_yfCrumb) return _yfCrumb;
-  try {
-    // Step 1: Hit Yahoo Finance to get cookies
-    const cookieUrl = 'https://fc.yahoo.com';
-    await fetchWithProxy(cookieUrl).catch(()=>{});
-    // Step 2: Get crumb
-    const crumbUrl = 'https://query1.finance.yahoo.com/v1/test/getcrumb';
-    const res = await fetchWithProxy(crumbUrl);
-    if (res.ok) {
-      _yfCrumb = await res.text();
-      if (_yfCrumb && _yfCrumb.length > 0) return _yfCrumb;
-    }
-  } catch(e) {}
-  return null;
-}
+function getUsdInr() { return LIVE['USDINR=X']?.price || 84; }
 
 const STORAGE_KEY = 'portfolio_data_v1';
 const GITHUB_TOKEN_KEY = 'github_token';
@@ -110,105 +160,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 function saveToStorage() { localStorage.setItem(STORAGE_KEY, JSON.stringify(PORTFOLIO)); }
 
-/* ═══════════════════════════════════════════════════════  LIVE DATA  */
-async function fetchAllLiveData() {
-  await Promise.allSettled([fetchMFNavs(), fetchStockAndGoldPrices()]);
-}
-async function fetchMFNavs() {
-  // Primary: mfapi.in — free, open CORS, no auth needed
-  const codes = [...new Set(PORTFOLIO.mutualFunds.map(mf => mf.schemeCode))];
-  let hits = 0;
-  await Promise.allSettled(codes.map(async code => {
-    try {
-      const res = await fetch(`https://api.mfapi.in/mf/${code}/latest`, {
-        signal: AbortSignal.timeout(10000)
-      });
-      if (!res.ok) throw new Error('mfapi failed');
-      const json = await res.json();
-      const nav = parseFloat(json?.data?.[0]?.nav);
-      if (!isNaN(nav) && nav > 0) {
-        // prev NAV = yesterday's entry if available, else stored currentNAV
-        const prevNav = parseFloat(json?.data?.[1]?.nav) || null;
-        const mf = PORTFOLIO.mutualFunds.find(m => m.schemeCode === code);
-        const prev = prevNav || mf?.currentNAV || nav;
-        LIVE[code] = { price: nav, prev };
-        hits++;
-      }
-    } catch(e) {
-      // Fallback: AMFI bulk feed via proxy
-      try {
-        const res = await fetchWithProxy(AMFI, {cache:'no-store'});
-        const txt = await res.text();
-        txt.split('\n').forEach(line => {
-          const p = line.split(';');
-          if (p.length >= 5 && p[0].trim() === code) {
-            const n = parseFloat(p[4]);
-            if (!isNaN(n)) {
-              const mf = PORTFOLIO.mutualFunds.find(m => m.schemeCode === code);
-              LIVE[code] = { price: n, prev: mf?.currentNAV || n };
-              hits++;
-            }
-          }
-        });
-      } catch(e2) {}
-    }
-  }));
-  console.log(`[MF] Loaded ${hits}/${codes.length} NAVs`);
-  if (hits === 0) {
-    // Last resort: bulk AMFI feed
-    try {
-      const res = await fetchWithProxy(AMFI, {cache:'no-store'});
-      const txt = await res.text();
-      const map = {};
-      txt.split('\n').forEach(line => {
-        const p = line.split(';');
-        if (p.length >= 5) { const n = parseFloat(p[4]); if (!isNaN(n)) map[p[0].trim()] = n; }
-      });
-      PORTFOLIO.mutualFunds.forEach(mf => {
-        const nav = map[mf.schemeCode];
-        if (nav) { LIVE[mf.schemeCode] = { price: nav, prev: mf.currentNAV || nav }; hits++; }
-      });
-      console.log(`[MF] Bulk AMFI loaded ${hits} NAVs`);
-    } catch(e) { console.error('[MF] All sources failed'); }
-  }
-}
-async function fetchStockAndGoldPrices() {
-  const syms = [...(PORTFOLIO.stocks||[]).map(s=>s.symbol), ...(PORTFOLIO.gold||[]).map(g=>g.symbol), 'USDINR=X'];
-  await Promise.allSettled(syms.map(fetchYF));
-}
-function getUsdInr() { return LIVE['USDINR=X']?.price || 84; }
-async function fetchYF(origSym) {
-  const sym = fixSymbol(origSym);
-  const crumb = await getYFCrumb();
-  const crumbParam = crumb ? `&crumb=${encodeURIComponent(crumb)}` : '';
-  const endpoints = [
-    `${YF}${encodeURIComponent(sym)}?interval=1d&range=5d${crumbParam}`,
-    `${YF2}${encodeURIComponent(sym)}?interval=1d&range=5d${crumbParam}`,
-    `${YF}${encodeURIComponent(sym)}?interval=1d&range=2d`,
-    `${YF2}${encodeURIComponent(sym)}?interval=1d&range=2d`,
-  ];
-  for (const url of endpoints) {
-    try {
-      const res = await fetchWithProxy(url, {
-        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
-        cache: 'no-store'
-      });
-      if (!res.ok) continue;
-      const data = await res.json();
-      const meta = data?.chart?.result?.[0]?.meta;
-      if (meta && (meta.regularMarketPrice || meta.previousClose)) {
-        const price = meta.regularMarketPrice || meta.previousClose;
-        const prev  = meta.chartPreviousClose || meta.regularMarketPreviousClose || meta.previousClose;
-        // Store under ORIGINAL symbol so calcStock/calcGold can find it
-        LIVE[origSym] = { price, prev, change: price-prev, changePct:((price-prev)/prev)*100 };
-        if (sym !== origSym) LIVE[sym] = LIVE[origSym]; // also store fixed key
-        console.log(`[YF ✓] ${origSym}${sym!==origSym?' (as '+sym+')':''}: ${price}`);
-        return;
-      }
-    } catch(e) {}
-  }
-  console.warn(`[YF ✗] ${origSym}: all endpoints failed`);
-}
+
 
 /* ═══════════════════════════════════════════════════════  CALCULATIONS  */
 function calcMF(mf) {
