@@ -15,9 +15,30 @@ let chartStore  = {};
 let _editIdx    = null;
 let _editType   = null;
 
-const CORS = 'https://corsproxy.io/?';
+const CORS_PROXIES = [
+  'https://corsproxy.io/?',
+  'https://api.allorigins.win/raw?url=',
+  'https://cors-anywhere.herokuapp.com/',
+];
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 const YF   = 'https://query1.finance.yahoo.com/v8/finance/chart/';
+const YF2  = 'https://query2.finance.yahoo.com/v8/finance/chart/';
+
+async function fetchWithFallback(url, options={}) {
+  // Try each CORS proxy in order
+  for (const proxy of CORS_PROXIES) {
+    try {
+      const res = await fetch(proxy + encodeURIComponent(url), {...options, signal: AbortSignal.timeout(8000)});
+      if (res.ok) return res;
+    } catch(e) {}
+  }
+  // Last resort: try direct (works if CORS is open)
+  try {
+    const res = await fetch(url, {...options, signal: AbortSignal.timeout(8000)});
+    if (res.ok) return res;
+  } catch(e) {}
+  throw new Error('All proxies failed for: ' + url);
+}
 
 const STORAGE_KEY = 'portfolio_data_v1';
 const GITHUB_TOKEN_KEY = 'github_token';
@@ -62,17 +83,20 @@ async function fetchAllLiveData() {
 }
 async function fetchMFNavs() {
   try {
-    const txt = await fetch(CORS + encodeURIComponent(AMFI), {cache:'no-store'}).then(r=>r.text());
+    const res = await fetchWithFallback(AMFI, {cache:'no-store'});
+    const txt = await res.text();
     const map = {};
     txt.split('\n').forEach(line => {
       const p = line.split(';');
       if (p.length >= 5) { const n = parseFloat(p[4]); if (!isNaN(n)) map[p[0].trim()] = n; }
     });
+    let hits = 0;
     PORTFOLIO.mutualFunds.forEach(mf => {
       const nav = map[mf.schemeCode];
-      if (nav) LIVE[mf.schemeCode] = { price: nav };
+      if (nav) { LIVE[mf.schemeCode] = { price: nav, prev: mf.currentNAV || nav }; hits++; }
     });
-  } catch(e) {}
+    console.log(`[MF] Loaded ${hits} NAVs`);
+  } catch(e) { console.error('[MF] Failed:', e.message); }
 }
 async function fetchStockAndGoldPrices() {
   const syms = [...(PORTFOLIO.stocks||[]).map(s=>s.symbol), ...(PORTFOLIO.gold||[]).map(g=>g.symbol), 'USDINR=X'];
@@ -81,14 +105,27 @@ async function fetchStockAndGoldPrices() {
 function getUsdInr() { return LIVE['USDINR=X']?.price || 84; }
 async function fetchYF(sym) {
   try {
-    const data = await fetch(CORS + encodeURIComponent(`${YF}${sym}?interval=1d&range=2d`), {cache:'no-store'}).then(r=>r.json());
+    // Try query1 then query2 Yahoo Finance endpoints
+    const urls = [
+      `${YF}${sym}?interval=1d&range=2d`,
+      `${YF2}${sym}?interval=1d&range=2d`,
+    ];
+    let data = null;
+    for (const url of urls) {
+      try {
+        const res = await fetchWithFallback(url, {cache:'no-store'});
+        data = await res.json();
+        if (data?.chart?.result?.[0]) break;
+      } catch(e) {}
+    }
     const meta = data?.chart?.result?.[0]?.meta;
     if (meta) {
       const price = meta.regularMarketPrice || meta.previousClose;
       const prev  = meta.chartPreviousClose || meta.previousClose;
       LIVE[sym] = { price, prev, change: price-prev, changePct:((price-prev)/prev)*100 };
+      console.log(`[YF] ${sym}: ₹${price} (prev: ${prev})`);
     }
-  } catch(e) {}
+  } catch(e) { console.error('[YF] Failed for', sym, e.message); }
 }
 
 /* ═══════════════════════════════════════════════════════  CALCULATIONS  */
