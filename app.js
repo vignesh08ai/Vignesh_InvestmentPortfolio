@@ -18,26 +18,43 @@ let _editType   = null;
 const CORS_PROXIES = [
   'https://corsproxy.io/?',
   'https://api.allorigins.win/raw?url=',
-  'https://cors-anywhere.herokuapp.com/',
+  'https://thingproxy.freeboard.io/fetch/',
 ];
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 const YF   = 'https://query1.finance.yahoo.com/v8/finance/chart/';
 const YF2  = 'https://query2.finance.yahoo.com/v8/finance/chart/';
 
-async function fetchWithFallback(url, options={}) {
-  // Try each CORS proxy in order
+let _yfCrumb = null;
+
+async function fetchWithProxy(url, options={}) {
   for (const proxy of CORS_PROXIES) {
     try {
-      const res = await fetch(proxy + encodeURIComponent(url), {...options, signal: AbortSignal.timeout(8000)});
+      const res = await fetch(proxy + encodeURIComponent(url), {
+        ...options,
+        signal: AbortSignal.timeout(10000)
+      });
       if (res.ok) return res;
     } catch(e) {}
   }
-  // Last resort: try direct (works if CORS is open)
+  throw new Error('All proxies failed');
+}
+
+/* Get Yahoo Finance crumb — required since 2024 */
+async function getYFCrumb() {
+  if (_yfCrumb) return _yfCrumb;
   try {
-    const res = await fetch(url, {...options, signal: AbortSignal.timeout(8000)});
-    if (res.ok) return res;
+    // Step 1: Hit Yahoo Finance to get cookies
+    const cookieUrl = 'https://fc.yahoo.com';
+    await fetchWithProxy(cookieUrl).catch(()=>{});
+    // Step 2: Get crumb
+    const crumbUrl = 'https://query1.finance.yahoo.com/v1/test/getcrumb';
+    const res = await fetchWithProxy(crumbUrl);
+    if (res.ok) {
+      _yfCrumb = await res.text();
+      if (_yfCrumb && _yfCrumb.length > 0) return _yfCrumb;
+    }
   } catch(e) {}
-  throw new Error('All proxies failed for: ' + url);
+  return null;
 }
 
 const STORAGE_KEY = 'portfolio_data_v1';
@@ -82,21 +99,62 @@ async function fetchAllLiveData() {
   await Promise.allSettled([fetchMFNavs(), fetchStockAndGoldPrices()]);
 }
 async function fetchMFNavs() {
-  try {
-    const res = await fetchWithFallback(AMFI, {cache:'no-store'});
-    const txt = await res.text();
-    const map = {};
-    txt.split('\n').forEach(line => {
-      const p = line.split(';');
-      if (p.length >= 5) { const n = parseFloat(p[4]); if (!isNaN(n)) map[p[0].trim()] = n; }
-    });
-    let hits = 0;
-    PORTFOLIO.mutualFunds.forEach(mf => {
-      const nav = map[mf.schemeCode];
-      if (nav) { LIVE[mf.schemeCode] = { price: nav, prev: mf.currentNAV || nav }; hits++; }
-    });
-    console.log(`[MF] Loaded ${hits} NAVs`);
-  } catch(e) { console.error('[MF] Failed:', e.message); }
+  // Primary: mfapi.in — free, open CORS, no auth needed
+  const codes = [...new Set(PORTFOLIO.mutualFunds.map(mf => mf.schemeCode))];
+  let hits = 0;
+  await Promise.allSettled(codes.map(async code => {
+    try {
+      const res = await fetch(`https://api.mfapi.in/mf/${code}/latest`, {
+        signal: AbortSignal.timeout(10000)
+      });
+      if (!res.ok) throw new Error('mfapi failed');
+      const json = await res.json();
+      const nav = parseFloat(json?.data?.[0]?.nav);
+      if (!isNaN(nav) && nav > 0) {
+        // prev NAV = yesterday's entry if available, else stored currentNAV
+        const prevNav = parseFloat(json?.data?.[1]?.nav) || null;
+        const mf = PORTFOLIO.mutualFunds.find(m => m.schemeCode === code);
+        const prev = prevNav || mf?.currentNAV || nav;
+        LIVE[code] = { price: nav, prev };
+        hits++;
+      }
+    } catch(e) {
+      // Fallback: AMFI bulk feed via proxy
+      try {
+        const res = await fetchWithProxy(AMFI, {cache:'no-store'});
+        const txt = await res.text();
+        txt.split('\n').forEach(line => {
+          const p = line.split(';');
+          if (p.length >= 5 && p[0].trim() === code) {
+            const n = parseFloat(p[4]);
+            if (!isNaN(n)) {
+              const mf = PORTFOLIO.mutualFunds.find(m => m.schemeCode === code);
+              LIVE[code] = { price: n, prev: mf?.currentNAV || n };
+              hits++;
+            }
+          }
+        });
+      } catch(e2) {}
+    }
+  }));
+  console.log(`[MF] Loaded ${hits}/${codes.length} NAVs`);
+  if (hits === 0) {
+    // Last resort: bulk AMFI feed
+    try {
+      const res = await fetchWithProxy(AMFI, {cache:'no-store'});
+      const txt = await res.text();
+      const map = {};
+      txt.split('\n').forEach(line => {
+        const p = line.split(';');
+        if (p.length >= 5) { const n = parseFloat(p[4]); if (!isNaN(n)) map[p[0].trim()] = n; }
+      });
+      PORTFOLIO.mutualFunds.forEach(mf => {
+        const nav = map[mf.schemeCode];
+        if (nav) { LIVE[mf.schemeCode] = { price: nav, prev: mf.currentNAV || nav }; hits++; }
+      });
+      console.log(`[MF] Bulk AMFI loaded ${hits} NAVs`);
+    } catch(e) { console.error('[MF] All sources failed'); }
+  }
 }
 async function fetchStockAndGoldPrices() {
   const syms = [...(PORTFOLIO.stocks||[]).map(s=>s.symbol), ...(PORTFOLIO.gold||[]).map(g=>g.symbol), 'USDINR=X'];
@@ -104,28 +162,34 @@ async function fetchStockAndGoldPrices() {
 }
 function getUsdInr() { return LIVE['USDINR=X']?.price || 84; }
 async function fetchYF(sym) {
-  try {
-    // Try query1 then query2 Yahoo Finance endpoints
-    const urls = [
-      `${YF}${sym}?interval=1d&range=2d`,
-      `${YF2}${sym}?interval=1d&range=2d`,
-    ];
-    let data = null;
-    for (const url of urls) {
-      try {
-        const res = await fetchWithFallback(url, {cache:'no-store'});
-        data = await res.json();
-        if (data?.chart?.result?.[0]) break;
-      } catch(e) {}
-    }
-    const meta = data?.chart?.result?.[0]?.meta;
-    if (meta) {
-      const price = meta.regularMarketPrice || meta.previousClose;
-      const prev  = meta.chartPreviousClose || meta.previousClose;
-      LIVE[sym] = { price, prev, change: price-prev, changePct:((price-prev)/prev)*100 };
-      console.log(`[YF] ${sym}: ₹${price} (prev: ${prev})`);
-    }
-  } catch(e) { console.error('[YF] Failed for', sym, e.message); }
+  // Try multiple Yahoo Finance endpoints + crumb
+  const crumb = await getYFCrumb();
+  const crumbParam = crumb ? `&crumb=${encodeURIComponent(crumb)}` : '';
+  const endpoints = [
+    `${YF}${sym}?interval=1d&range=5d${crumbParam}`,
+    `${YF2}${sym}?interval=1d&range=5d${crumbParam}`,
+    `${YF}${sym}?interval=1d&range=2d`,
+    `${YF2}${sym}?interval=1d&range=2d`,
+  ];
+  for (const url of endpoints) {
+    try {
+      const res = await fetchWithProxy(url, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' },
+        cache: 'no-store'
+      });
+      if (!res.ok) continue;
+      const data = await res.json();
+      const meta = data?.chart?.result?.[0]?.meta;
+      if (meta && (meta.regularMarketPrice || meta.previousClose)) {
+        const price = meta.regularMarketPrice || meta.previousClose;
+        const prev  = meta.chartPreviousClose || meta.regularMarketPreviousClose || meta.previousClose;
+        LIVE[sym] = { price, prev, change: price-prev, changePct:((price-prev)/prev)*100 };
+        console.log(`[YF ✓] ${sym}: ${price}`);
+        return;
+      }
+    } catch(e) {}
+  }
+  console.warn(`[YF ✗] ${sym}: all endpoints failed`);
 }
 
 /* ═══════════════════════════════════════════════════════  CALCULATIONS  */
