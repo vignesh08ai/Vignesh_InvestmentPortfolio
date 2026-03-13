@@ -46,7 +46,7 @@ async function fetchAllLiveData() {
   }
 }
 
-/* ── PROXY PATH (Google Apps Script) ── */
+/* ── PROXY PATH (Google Apps Script — uses GET to avoid CORS) ── */
 async function fetchAllViaProxy() {
   const mfCodes = [...new Set(PORTFOLIO.mutualFunds.map(m => m.schemeCode))];
   const rawSyms = [...new Set([
@@ -55,17 +55,17 @@ async function fetchAllViaProxy() {
     'USDINR=X'
   ])];
   const stocks = rawSyms.map(fixSymbol);
-  // Keep mapping from fixed→original so we can store under original key
   const fixMap = {};
   rawSyms.forEach(s => { fixMap[fixSymbol(s)] = s; });
 
   try {
-    const res = await fetch(PROXY_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ mfCodes, stocks }),
-      signal: AbortSignal.timeout(30000)
-    });
+    // Use GET with URL params — avoids CORS preflight entirely
+    const url = PROXY_URL
+      + '?action=batch'
+      + '&mfCodes=' + encodeURIComponent(mfCodes.join(','))
+      + '&stocks='  + encodeURIComponent(stocks.join(','));
+
+    const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
     if (!res.ok) throw new Error('Proxy returned ' + res.status);
     const json = await res.json();
     if (json.status !== 'ok') throw new Error(json.message);
@@ -86,7 +86,6 @@ async function fetchAllViaProxy() {
     console.log('[PROXY] Live data loaded:', Object.keys(LIVE).length, 'symbols');
   } catch(e) {
     console.error('[PROXY] Failed:', e.message);
-    // Fallback to direct
     await Promise.allSettled([fetchMFNavsDirect(), fetchStocksDirect()]);
   }
 }
