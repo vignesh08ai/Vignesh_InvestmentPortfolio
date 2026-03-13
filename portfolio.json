@@ -62,72 +62,62 @@
   "fixedDeposits": [
     {
       "bank": "KMBF",
-      "fdNumber": "12233",
+      "fdNumber": "73646",
       "invested": 100000,
       "rate": 10,
-      "startDate": "2026-01-01",
-      "maturityDate": "2026-12-31",
-      "maturityValue": 0,
+      "startDate": "2025-06-01",
+      "maturityDate": "2026-05-30",
+      "maturityValue": 109945.21,
       "status": "Active"
     },
     {
       "bank": "KMBF",
-      "fdNumber": "9098",
+      "fdNumber": "78646",
       "invested": 90000,
       "rate": 10,
-      "startDate": "2026-01-01",
-      "maturityDate": "2026-12-31",
-      "maturityValue": 0,
+      "startDate": "2025-06-01",
+      "maturityDate": "2026-05-30",
+      "maturityValue": 98950.68,
       "status": "Active"
     },
     {
-      "bank": "HDFC_MINE",
-      "fdNumber": "1122",
+      "bank": "IDFC",
+      "fdNumber": "6355",
       "invested": 50000,
-      "rate": 6.5,
-      "startDate": "2026-01-01",
-      "maturityDate": "2026-12-31",
-      "maturityValue": 0,
+      "rate": 7,
+      "startDate": "2026-02-10",
+      "maturityDate": "2027-02-10",
+      "maturityValue": 53500,
       "status": "Active"
     },
     {
-      "bank": "HDFC_NANDHINI",
-      "fdNumber": "8977",
+      "bank": "HDFC",
+      "fdNumber": "9886",
+      "invested": 30000,
+      "rate": 7,
+      "startDate": "2026-02-10",
+      "maturityDate": "2027-02-10",
+      "maturityValue": 32100,
+      "status": "Active"
+    },
+    {
+      "bank": "IDFC 5YR",
+      "fdNumber": "9877",
+      "invested": 70000,
+      "rate": 7.6,
+      "startDate": "2022-12-10",
+      "maturityDate": "2027-12-10",
+      "maturityValue": 96614.58,
+      "status": "Active"
+    },
+    {
+      "bank": "HDFC 5YR",
+      "fdNumber": "5654",
       "invested": 30000,
       "rate": 6.5,
-      "startDate": "2026-01-01",
-      "maturityDate": "2026-12-31",
-      "maturityValue": 0,
-      "status": "Active"
-    },
-    {
-      "bank": "IDFC_5YR",
-      "fdNumber": "81888",
-      "invested": 75000,
-      "rate": 6.5,
-      "startDate": "2022-12-31",
-      "maturityDate": "2027-12-31",
-      "maturityValue": 97000,
-      "status": "Active"
-    },
-    {
-      "bank": "HDFC_5YR",
-      "fdNumber": "7876",
-      "invested": 30000,
-      "rate": 6.5,
-      "startDate": "2023-01-01",
-      "maturityDate": "2027-12-31",
-      "maturityValue": 38000,
-      "status": "Active"
-    },
-    {
-      "bank": "VIGNESH_PF",
-      "fdNumber": "67755",
-      "invested": 300000,
-      "rate": 7.5,
-      "startDate": "2026-01-01",
-      "maturityDate": "2026-12-31",
-      "maturityValue": 0,
+      "startDate": "2022-12-10",
+      "maturityDate": "2027-12-10",
+      "maturityValue": 39755.34,
       "status": "Active"
     }
   ],
@@ -136,49 +126,73 @@
       "name": "Bandhan Multi Factor Fund",
       "schemeCode": "153721",
       "owner": "Mahesh",
-      "units": 1885.76,
-      "purchaseNAV": 10.6053,
-      "invested": 19999
+      "units": 950.7,
+      "purchaseNAV": 10.518,
+      "invested": 9999.4626,
+      "currentNAV": 10.565,
+      "currentValue": 9992.8077,
+      "gainLoss": -6.6549,
+      "returnPct": -0.07
     },
     {
       "name": "ICICI Prudential Business Cycle Fund-Growth",
       "schemeCode": "148653",
       "owner": "Mahesh",
-      "units": 17242.79,
-      "purchaseNAV": 21.8631,
-      "invested": 376981.23
+      "units": 16634.38,
+      "purchaseNAV": 21.731,
+      "invested": 361481.7118,
+      "currentNAV": 25.65,
+      "currentValue": 423511.3148,
+      "gainLoss": 62029.603,
+      "returnPct": 17.16
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
       "schemeCode": "145077",
       "owner": "Mahesh",
-      "units": 3549.15,
-      "purchaseNAV": 34.3727,
-      "invested": 121993.9
+      "units": 3328.21,
+      "purchaseNAV": 34.251,
+      "invested": 113994.5207,
+      "currentNAV": 36.44,
+      "currentValue": 121013.7156,
+      "gainLoss": 7019.1949,
+      "returnPct": 6.16
     },
     {
       "name": "Invesco India Mid cap fund",
       "schemeCode": "105503",
       "owner": "Mahesh",
-      "units": 276.24,
-      "purchaseNAV": 180.9937,
-      "invested": 49997.52
+      "units": 207.95,
+      "purchaseNAV": 180.3246,
+      "invested": 37498.5006,
+      "currentNAV": 181.72,
+      "currentValue": 37609.837,
+      "gainLoss": 111.3364,
+      "returnPct": 0.3
     },
     {
       "name": "Nippon India Power and Infra Fund Growth (SIP)",
       "schemeCode": "101262",
       "owner": "Mahesh",
-      "units": 348.01,
-      "purchaseNAV": 341.9261,
-      "invested": 118994.05
+      "units": 333.93,
+      "purchaseNAV": 341.3678,
+      "invested": 113992.9495,
+      "currentNAV": 351.7458,
+      "currentValue": 116479.793,
+      "gainLoss": 2486.8435,
+      "returnPct": 2.18
     },
     {
       "name": "Nippon India Small Cap Fund Growth (SIP)",
       "schemeCode": "113177",
       "owner": "Mahesh",
-      "units": 2139.86,
-      "purchaseNAV": 154.2082,
-      "invested": 329983.54
+      "units": 2071.45,
+      "purchaseNAV": 153.8697,
+      "invested": 318733.3901,
+      "currentNAV": 162.7355,
+      "currentValue": 337032.7865,
+      "gainLoss": 18299.3964,
+      "returnPct": 5.74
     },
     {
       "name": "Quant Mid Cap Fund Growth ",
@@ -196,57 +210,85 @@
       "name": "SBI Large & Midcap-Direct-Div",
       "schemeCode": "103024",
       "owner": "Mahesh",
-      "units": 554.95,
-      "purchaseNAV": 558.584,
-      "invested": 309984.5
+      "units": 539.8,
+      "purchaseNAV": 555.7336,
+      "invested": 299984.9973,
+      "currentNAV": 655.2183,
+      "currentValue": 351699.9965,
+      "gainLoss": 51714.9992,
+      "returnPct": 17.24
     },
     {
       "name": "Tata Banking and Financial Services Fund Growth (SIP)",
       "schemeCode": "135794",
       "owner": "Mahesh",
-      "units": 1217.37,
-      "purchaseNAV": 38.1954,
-      "invested": 46497.83
+      "units": 1184.98,
+      "purchaseNAV": 37.9736,
+      "invested": 44997.9565,
+      "currentNAV": 45.9314,
+      "currentValue": 53875.9452,
+      "gainLoss": 8877.9887,
+      "returnPct": 19.73
     },
     {
       "name": "Tata Digital India Fund Growth (SIP)",
       "schemeCode": "135797",
       "owner": "Mahesh",
-      "units": 1741.41,
-      "purchaseNAV": 44.5021,
-      "invested": 77496.28
+      "units": 1682.75,
+      "purchaseNAV": 44.5678,
+      "invested": 74996.4655,
+      "currentNAV": 42.5964,
+      "currentValue": 71853.0885,
+      "gainLoss": -3143.377,
+      "returnPct": -4.19
     },
     {
       "name": "Tata India Consumer Fund Growth",
       "schemeCode": "135804",
       "owner": "Mahesh",
-      "units": 2606.24,
-      "purchaseNAV": 42.3962,
-      "invested": 110494.71
+      "units": 2513.78,
+      "purchaseNAV": 42.3645,
+      "invested": 106495.0328,
+      "currentNAV": 42.977,
+      "currentValue": 107962.3262,
+      "gainLoss": 1467.2934,
+      "returnPct": 1.38
     },
     {
       "name": "Tata India Pharma and Healthcare Fund Growth",
       "schemeCode": "135812",
       "owner": "Mahesh",
-      "units": 3876.3,
-      "purchaseNAV": 28.5052,
-      "invested": 110494.71
+      "units": 3742.37,
+      "purchaseNAV": 28.4565,
+      "invested": 106494.7519,
+      "currentNAV": 29.6016,
+      "currentValue": 110262.57,
+      "gainLoss": 3767.8181,
+      "returnPct": 3.54
     },
     {
       "name": "Tata Infrastructure Fund Growth (SIP)",
       "schemeCode": "101766",
       "owner": "Mahesh",
-      "units": 287.06,
-      "purchaseNAV": 161.9806,
-      "invested": 46497.83
+      "units": 278.22,
+      "purchaseNAV": 161.7379,
+      "invested": 44998.7185,
+      "currentNAV": 167.1995,
+      "currentValue": 46226.6147,
+      "gainLoss": 1227.8961,
+      "returnPct": 2.73
     },
     {
       "name": "Tata Resources and Energy Fund Growth (SIP)",
       "schemeCode": "135815",
       "owner": "Mahesh",
-      "units": 1139.43,
-      "purchaseNAV": 40.8082,
-      "invested": 46497.83
+      "units": 1107.77,
+      "purchaseNAV": 40.6201,
+      "invested": 44997.7282,
+      "currentNAV": 47.0114,
+      "currentValue": 51698.075,
+      "gainLoss": 6700.3468,
+      "returnPct": 14.89
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
@@ -299,10 +341,15 @@
     {
       "name": "Axis Global Equity Alpha FOF-Regular-Growth",
       "schemeCode": "148485",
+      "folioNumber": "",
       "owner": "Family",
-      "units": 444.842,
-      "purchaseNAV": 23.82,
-      "invested": 10599.695
+      "units": 423.833,
+      "purchaseNAV": 23.83,
+      "invested": 10099.9404,
+      "currentNAV": 23.834,
+      "currentValue": 10101.6357,
+      "gainLoss": 1.6953,
+      "returnPct": 0.0168
     },
     {
       "name": "DSP ELSS Tax Saver Fund",
@@ -316,25 +363,30 @@
       "name": "Kotak Large & Midcap Fund",
       "schemeCode": "120158",
       "owner": "Family",
-      "units": 128.604,
-      "purchaseNAV": 386.44,
-      "invested": 49698.23
+      "units": 123.304,
+      "purchaseNAV": 385.91,
+      "invested": 47198.337
     },
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
       "schemeCode": "135781",
+      "folioNumber": "",
       "owner": "Family",
       "units": 2203.927,
       "purchaseNAV": 38.34,
-      "invested": 84501.65
+      "invested": 84498.5612,
+      "currentNAV": 57.4,
+      "currentValue": 126505.4098,
+      "gainLoss": 42006.8486,
+      "returnPct": 49.7131
     },
     {
       "name": "Parag Parikh Flexi Cap Fund",
       "schemeCode": "122639",
       "owner": "Family",
-      "units": 552.1,
+      "units": 529.977,
       "purchaseNAV": 90.56,
-      "invested": 49997.51
+      "invested": 47997.367
     },
     {
       "name": "Quant ELSS Tax Saver Fund",
@@ -352,18 +404,28 @@
     {
       "name": "Zerodha Gold ETF FoF-Direct Plan - Growth Option",
       "schemeCode": "153011",
+      "folioNumber": "",
       "owner": "Family",
-      "units": 793.727,
-      "purchaseNAV": 18.9,
-      "invested": 14999.3
+      "units": 721.885,
+      "purchaseNAV": 18.7,
+      "invested": 13499.2495,
+      "currentNAV": 20.0776,
+      "currentValue": 14493.7183,
+      "gainLoss": 994.4688,
+      "returnPct": 7.3668
     },
     {
       "name": "ICICI PRUDENTIAL MULTI ASSET FUND",
       "schemeCode": "120334",
+      "folioNumber": "",
       "owner": "Family",
-      "units": 33.12,
-      "purchaseNAV": 905.76,
-      "invested": 29998.74
+      "units": 18.801,
+      "purchaseNAV": 904.17,
+      "invested": 16999.3002,
+      "currentNAV": 908.81,
+      "currentValue": 17086.5368,
+      "gainLoss": 87.2366,
+      "returnPct": 0.5132
     },
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
@@ -428,28 +490,46 @@
     {
       "name": "Motilal Oswal Gold and Silver ETFs FoF Dir-Gth",
       "schemeCode": "150642",
+      "folioNumber": "",
       "owner": "Family",
-      "units": 322.672,
-      "purchaseNAV": 28.82,
-      "invested": 9299.55
+      "units": 308.057,
+      "purchaseNAV": 28.57,
+      "invested": 8801.1885,
+      "currentNAV": 31.6028,
+      "currentValue": 9735.4638,
+      "gainLoss": 934.2753,
+      "returnPct": 10.6153
     },
     {
       "name": "SUNDARAM MID CAP FUND",
       "schemeCode": "119581",
+      "folioNumber": "",
       "owner": "Family",
-      "units": 12.195,
-      "purchaseNAV": 1557.75,
-      "invested": 18996.71
+      "units": 11.199,
+      "purchaseNAV": 1562.37,
+      "invested": 17497.03,
+      "currentNAV": 1570.6812,
+      "currentValue": 17590.0588,
+      "gainLoss": 93.0288,
+      "returnPct": 0.5317
     }
   ],
   "stocks": [
     {
       "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
-      "symbol": "ARE&M.NS",
+      "symbol": "AMARAJABAT.NS",
       "exchange": "NSE",
       "units": 15,
       "avgPrice": 722.27,
       "invested": 10834.05
+    },
+    {
+      "name": "EXIDE INDUSTRIES LIMITED",
+      "symbol": "EXIDEIND.NS",
+      "exchange": "NSE",
+      "units": 37,
+      "avgPrice": 348.87,
+      "invested": 12908.19
     },
     {
       "name": "THE FEDERAL BANK LTD",
@@ -471,9 +551,9 @@
       "name": "IDFC FIRST BANK LIMITED",
       "symbol": "IDFCFIRSTB.NS",
       "exchange": "NSE",
-      "units": 65,
-      "avgPrice": 65.29,
-      "invested": 4243.85
+      "units": 54,
+      "avgPrice": 64.68,
+      "invested": 3492.72
     },
     {
       "name": "ITC LIMITED",
@@ -532,6 +612,14 @@
       "invested": 6875.55
     },
     {
+      "name": "WIPRO LIMITED",
+      "symbol": "WIPRO.NS",
+      "exchange": "NSE",
+      "units": 41,
+      "avgPrice": 223.53,
+      "invested": 9164.73
+    },
+    {
       "name": "ZYDUS LIFESCIENCES LIMITED",
       "symbol": "ZYDUSLIFE.NS",
       "exchange": "NSE",
@@ -541,11 +629,11 @@
     },
     {
       "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
-      "symbol": "ARE&M .NS",
+      "symbol": "AMARAJABAT.NS",
       "exchange": "NSE",
-      "units": 10,
-      "avgPrice": 827.17,
-      "invested": 8271.7
+      "units": 6,
+      "avgPrice": 607.32,
+      "invested": 3643.9
     },
     {
       "name": "ITC LIMITED",
@@ -581,7 +669,7 @@
     },
     {
       "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
-      "symbol": "ARE&M.NS",
+      "symbol": "AMARAJABAT.NS",
       "exchange": "NSE",
       "units": 8,
       "avgPrice": 835.94,
@@ -591,9 +679,9 @@
       "name": "ICICI Pru Nifty FMCG ETF",
       "symbol": "FMCGIETF.NS",
       "exchange": "NSE",
-      "units": 105,
-      "avgPrice": 54.43,
-      "invested": 5715.04
+      "units": 80,
+      "avgPrice": 54.85,
+      "invested": 4387.99
     },
     {
       "name": "Nippon India ETF Gold BeES",
@@ -607,17 +695,17 @@
       "name": "Nippon India ETF Nifty IT",
       "symbol": "ITBEES.NS",
       "exchange": "NSE",
-      "units": 137,
-      "avgPrice": 38.43,
-      "invested": 5265.47
+      "units": 102,
+      "avgPrice": 40.24,
+      "invested": 4104.92
     },
     {
       "name": "ITC LIMITED",
       "symbol": "ITC.NS",
       "exchange": "NSE",
-      "units": 20,
-      "avgPrice": 334.84,
-      "invested": 6696.85
+      "units": 17,
+      "avgPrice": 340.23,
+      "invested": 5783.95
     },
     {
       "name": "NATCO PHARMA LIMITED",
@@ -631,9 +719,9 @@
       "name": "REC LIMITED",
       "symbol": "RECLTD.NS",
       "exchange": "NSE",
-      "units": 15,
-      "avgPrice": 369.87,
-      "invested": 5548
+      "units": 25,
+      "avgPrice": 367.43,
+      "invested": 9185.65
     },
     {
       "name": "Zee Entertainment Enterprises Limited",
@@ -647,45 +735,45 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.057871,
-      "avgPrice": 396.57,
-      "invested": 22.95
+      "units": 0.019575,
+      "avgPrice": 408.18,
+      "invested": 7.99
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
       "symbol": "AMZN",
       "exchange": "NASDAQ",
-      "units": 0.157463,
-      "avgPrice": 209,
-      "invested": 32.91
+      "units": 0.119297,
+      "avgPrice": 208.97,
+      "invested": 9.98
     },
     {
       "name": "Invesco QQQ ETF (NASDAQ 100)",
       "symbol": "QQQ",
       "exchange": "NASDAQ",
-      "units": 0.195705,
-      "avgPrice": 609.45,
-      "invested": 119.27
+      "units": 0.155761,
+      "avgPrice": 612.05,
+      "invested": 93.64
     },
     {
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.147788,
-      "avgPrice": 627.86,
-      "invested": 92.79
+      "units": 0.107453,
+      "avgPrice": 631.35,
+      "invested": 67.84
     },
     {
       "name": "Oracle",
       "symbol": "ORCL",
       "exchange": "NASDAQ",
-      "units": 0.165307,
-      "avgPrice": 150.93,
-      "invested": 24.95
+      "units": 0.068032,
+      "avgPrice": 146.7,
+      "invested": 9.98
     },
     {
       "name": "TATA MOTORS PASSENGER VEHICLES LIMITED",
-      "symbol": "TMPV.NS",
+      "symbol": "TATAMTRDVR.NS",
       "exchange": "NSE",
       "units": 60,
       "avgPrice": 352.75,
@@ -693,15 +781,15 @@
     },
     {
       "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
-      "symbol": "TMCV.NS",
+      "symbol": "TATAMOTORS.NS",
       "exchange": "NSE",
-      "units": 40,
-      "avgPrice": 343.3,
-      "invested": 13732.13
+      "units": 35,
+      "avgPrice": 327.26,
+      "invested": 11454
     },
     {
       "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
-      "symbol": "TMCV.NS",
+      "symbol": "TATAMOTORS.NS",
       "exchange": "NSE",
       "units": 14,
       "avgPrice": 190.42,
@@ -709,74 +797,18 @@
     },
     {
       "name": "TATA MOTORS PASSENGER VEHICLES LIMITED",
-      "symbol": "TMPV.NS",
+      "symbol": "TATAMTRDVR.NS",
       "exchange": "NSE",
       "units": 14,
       "avgPrice": 420.88,
       "invested": 5892
-    },
-    {
-      "name": "Wipro",
-      "symbol": "Wipro.NS",
-      "exchange": "NSE",
-      "units": 30,
-      "avgPrice": 203.16,
-      "invested": 6094.95
-    },
-    {
-      "name": "TCS",
-      "symbol": "TCS.NS",
-      "exchange": "BSE",
-      "units": 1,
-      "avgPrice": 2630.5,
-      "invested": 2630.5
-    },
-    {
-      "name": "EPAM SYSTEMS",
-      "symbol": "epam",
-      "exchange": "NASDAQ",
-      "units": 0.17666,
-      "avgPrice": 141.23,
-      "invested": 24.95
-    },
-    {
-      "name": "FTSE Developed Market Index",
-      "symbol": "VEA",
-      "exchange": "NASDAQ",
-      "units": 0.303026,
-      "avgPrice": 65.8,
-      "invested": 19.94
-    },
-    {
-      "name": "Movalue",
-      "symbol": "MOVALUE.NS",
-      "exchange": "NSE",
-      "units": 2,
-      "avgPrice": 127.8,
-      "invested": 255.6
-    },
-    {
-      "name": "MOREALTY",
-      "symbol": "MOREALTY.NS",
-      "exchange": "NSE",
-      "units": 5,
-      "avgPrice": 72.52,
-      "invested": 362.6
-    },
-    {
-      "name": "MOVALUE",
-      "symbol": "MOVALUE.NS",
-      "exchange": "NSE",
-      "units": 15,
-      "avgPrice": 118.18,
-      "invested": 1772.75
     }
   ],
   "gold": [
     {
       "name": "Sovereign Gold Bond (SGB)",
       "type": "SGB",
-      "symbol": "goldbees.NS",
+      "symbol": "GOLDBEES.NS",
       "units": 460,
       "purchasePrice": 51,
       "invested": 23492
