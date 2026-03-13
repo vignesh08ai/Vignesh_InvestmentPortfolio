@@ -20,7 +20,7 @@ let _editType   = null;
    Set PROXY_URL to your deployed Google Apps Script URL
    e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
 ═══════════════════════════════════════════════════════ */
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbwTcnKP829OKZieO8s4PCU6uDhTuELe4oeD6bBQOVa9V6a-f3rY4fRjJbfd1x0wVJl0Mw/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
+const PROXY_URL = 'https://script.google.com/macros/s/AKfycbxrJ6X1jkxfOjhfYfL1MKjdL_ypk9LOReNyAqxkJ_LjLXNlkT9Rnu7oKzDp4DM3UBulZg/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
 
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 
@@ -46,7 +46,7 @@ async function fetchAllLiveData() {
   }
 }
 
-/* ── PROXY PATH (Google Apps Script — uses GET to avoid CORS) ── */
+/* ── PROXY PATH (Google Apps Script — batched GET requests) ── */
 async function fetchAllViaProxy() {
   const mfCodes = [...new Set(PORTFOLIO.mutualFunds.map(m => m.schemeCode))];
   const rawSyms = [...new Set([
@@ -58,32 +58,60 @@ async function fetchAllViaProxy() {
   const fixMap = {};
   rawSyms.forEach(s => { fixMap[fixSymbol(s)] = s; });
 
-  try {
-    // Use GET with URL params — avoids CORS preflight entirely
+  // Helper to call proxy with a small batch
+  async function proxyBatch(codes, syms) {
     const url = PROXY_URL
       + '?action=batch'
-      + '&mfCodes=' + encodeURIComponent(mfCodes.join(','))
-      + '&stocks='  + encodeURIComponent(stocks.join(','));
-
-    const res = await fetch(url, { signal: AbortSignal.timeout(30000) });
+      + (codes.length ? '&mfCodes=' + encodeURIComponent(codes.join(',')) : '')
+      + (syms.length  ? '&stocks='  + encodeURIComponent(syms.join(','))  : '');
+    const res = await fetch(url, { signal: AbortSignal.timeout(25000) });
     if (!res.ok) throw new Error('Proxy returned ' + res.status);
     const json = await res.json();
     if (json.status !== 'ok') throw new Error(json.message);
-    const data = json.data || {};
+    return json.data || {};
+  }
 
-    // MF NAVs
-    mfCodes.forEach(code => {
-      if (data[code]) LIVE[code] = data[code];
+  // Chunk array into pieces of size n
+  function chunk(arr, n) {
+    const out = [];
+    for (let i = 0; i < arr.length; i += n) out.push(arr.slice(i, i+n));
+    return out;
+  }
+
+  try {
+    // Send MF codes in batches of 20, stocks in batches of 10
+    const mfBatches  = chunk(mfCodes, 20);
+    const stkBatches = chunk(stocks, 10);
+
+    // Run all batches in parallel
+    const allBatches = [
+      ...mfBatches.map(b  => proxyBatch(b, [])),
+      ...stkBatches.map(b => proxyBatch([], b)),
+    ];
+    const results = await Promise.allSettled(allBatches);
+
+    let hits = 0;
+    results.forEach(r => {
+      if (r.status !== 'fulfilled') return;
+      const data = r.value;
+      // Store MF NAVs
+      mfCodes.forEach(code => {
+        if (data[code]) { LIVE[code] = data[code]; hits++; }
+      });
+      // Store stock prices under original symbol
+      stocks.forEach(sym => {
+        if (data[sym]) {
+          const origSym = fixMap[sym] || sym;
+          LIVE[origSym] = data[sym];
+          if (origSym !== sym) LIVE[sym] = data[sym];
+          hits++;
+        }
+      });
     });
-    // Stocks (store under original symbol)
-    stocks.forEach(sym => {
-      if (data[sym]) {
-        const origSym = fixMap[sym] || sym;
-        LIVE[origSym] = data[sym];
-        if (origSym !== sym) LIVE[sym] = data[sym];
-      }
-    });
-    console.log('[PROXY] Live data loaded:', Object.keys(LIVE).length, 'symbols');
+
+    console.log('[PROXY] Live data loaded:', hits, 'prices');
+    if (hits === 0) throw new Error('No data returned');
+
   } catch(e) {
     console.error('[PROXY] Failed:', e.message);
     await Promise.allSettled([fetchMFNavsDirect(), fetchStocksDirect()]);
