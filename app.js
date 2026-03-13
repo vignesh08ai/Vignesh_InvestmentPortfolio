@@ -20,7 +20,7 @@ let _editType   = null;
    Set PROXY_URL to your deployed Google Apps Script URL
    e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
 ═══════════════════════════════════════════════════════ */
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzX4oZ_fju7XuJoPWYSaj41Gr3XTZ_JcHu9mB9lDtdi2jUVQp72L_AU0_QsYKGkwRmEFQ/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
+const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzX4oZ_fju7XuJoPWYSaj41Gr3XTZ_JcHu9mB9lDtdi2jUVQp72L_AU0_QsYKGkwRmEFQ/exec'; // ← PASTE YOUR APPS SCRIPT URL HERE
 
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 
@@ -225,7 +225,7 @@ function getAssetTotals() {
     { label:'Indian Equity', icon:'📊', items:PORTFOLIO.stocks.filter(s=>s.exchange!=='NASDAQ'),
       sum:items=>items.reduce((a,i)=>{const c=calcStock(i);return{inv:a.inv+i.invested,cur:a.cur+c.curVal,dgl:a.dgl+c.dailyGL};},{inv:0,cur:0,dgl:0})},
     { label:'US Equity', icon:'🇺🇸', items:PORTFOLIO.stocks.filter(s=>s.exchange==='NASDAQ'),
-      sum:items=>items.reduce((a,i)=>{const c=calcStock(i);const fx=getUsdInr();return{inv:a.inv+(i.invested*fx),cur:a.cur+(c.curVal*fx),dgl:a.dgl+(c.dailyGL*fx)};},{inv:0,cur:0,dgl:0})},
+      sum:items=>{const fx=getUsdInr();return items.reduce((a,i)=>{const c=calcStock(i);return{inv:a.inv+(i.invested*fx),cur:a.cur+(c.curVal*fx),dgl:a.dgl+(c.dailyGL*fx)};},{inv:0,cur:0,dgl:0});}},
     { label:'Gold / SGB', icon:'🥇', items:PORTFOLIO.gold||[],
       sum:items=>items.reduce((a,i)=>{const c=calcGold(i);return{inv:a.inv+i.invested,cur:a.cur+c.curVal,dgl:a.dgl+c.dailyGL};},{inv:0,cur:0,dgl:0})},
   ].filter(g=>g.items.length>0);
