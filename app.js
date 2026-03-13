@@ -20,7 +20,7 @@ let _editType   = null;
    Set PROXY_URL to your deployed Google Apps Script URL
    e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
 ═══════════════════════════════════════════════════════ */
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzX4oZ_fju7XuJoPWYSaj41Gr3XTZ_JcHu9mB9lDtdi2jUVQp72L_AU0_QsYKGkwRmEFQ/exec'; // ← PASTE YOUR APPS SCRIPT URL HERE
+const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzX4oZ_fju7XuJoPWYSaj41Gr3XTZ_JcHu9mB9lDtdi2jUVQp72L_AU0_QsYKGkwRmEFQ/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
 
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 
@@ -248,7 +248,8 @@ function buildSummaryCards() {
     <div class="scard scard-green"><div class="sc-icon">⚡</div><div class="sc-label">Daily Gain / Loss</div><div class="sc-value" id="sc-dgl-val">—</div><div class="sc-sub" id="sc-dgl-sub">—</div></div>
     <div class="scard scard-teal"><div class="sc-icon">🏛</div><div class="sc-label">Fixed Deposits</div><div class="sc-value gain" id="sc-fd-val">—</div><div class="sc-sub gain" id="sc-fd-sub">—</div></div>
     <div class="scard scard-accent"><div class="sc-icon">📈</div><div class="sc-label">Mutual Funds</div><div class="sc-value" id="sc-mf-val">—</div><div class="sc-sub" id="sc-mf-sub">—</div></div>
-    <div class="scard scard-purple"><div class="sc-icon">📉</div><div class="sc-label">Stocks</div><div class="sc-value" id="sc-stk-val">—</div><div class="sc-sub" id="sc-stk-sub">—</div></div>
+    <div class="scard scard-purple"><div class="sc-icon">📉</div><div class="sc-label">Indian Stocks</div><div class="sc-value" id="sc-stk-val">—</div><div class="sc-sub" id="sc-stk-sub">—</div></div>
+    <div class="scard scard-blue"><div class="sc-icon">🇺🇸</div><div class="sc-label">US Equity</div><div class="sc-value" id="sc-us-val">—</div><div class="sc-sub" id="sc-us-sub">—</div></div>
     <div class="scard scard-gold"><div class="sc-icon">🥇</div><div class="sc-label">Gold / SGB</div><div class="sc-value gold" id="sc-gld-val">—</div><div class="sc-sub gold" id="sc-gld-sub">—</div></div>`;
 }
 function updateSummaryCards() {
@@ -263,8 +264,9 @@ function updateSummaryCards() {
   if(fd) setCard('sc-fd',fmtINR(fd.cur),'+'+fd.ret.toFixed(2)+'% accrued','gain','gain');
   const mfInv=(mfm?.inv||0)+(mff?.inv||0),mfCur=(mfm?.cur||0)+(mff?.cur||0),mfGL=mfCur-mfInv,mfRet=mfInv>0?(mfGL/mfInv)*100:0;
   setCard('sc-mf',fmtINR(mfCur),(mfGL>=0?'+':'')+mfRet.toFixed(2)+'%',mfGL>=0?'gain':'loss',mfGL>=0?'gain':'loss');
-  const sInv=(nse?.inv||0)+(nas?.inv||0),sCur=(nse?.cur||0)+(nas?.cur||0),sGL=sCur-sInv,sRet=sInv>0?(sGL/sInv)*100:0;
+  const sInv=(nse?.inv||0),sCur=(nse?.cur||0),sGL=sCur-sInv,sRet=sInv>0?(sGL/sInv)*100:0;
   setCard('sc-stk',fmtINR(sCur),(sGL>=0?'+':'')+sRet.toFixed(2)+'%',sGL>=0?'gain':'loss',sGL>=0?'gain':'loss');
+  if(nas) setCard('sc-us',fmtINR(nas.cur),(nas.gl>=0?'+':'')+nas.ret.toFixed(2)+'%',nas.gl>=0?'gain':'loss',nas.gl>=0?'gain':'loss');
   if(gld) setCard('sc-gld',fmtINR(gld.cur),'+'+gld.ret.toFixed(2)+'%','gold','gold');
 }
 function setCard(id,val,sub,vCls,sCls){
@@ -452,7 +454,8 @@ function mkPageHeader(title, subtitle, rows, calcFn) {
   rows.forEach(r => {
     const c = calcFn(r);
     totalVal += c.curVal || 0;
-    totalInvested += r.invested || 0;
+    // Use _investedINR if provided (US stocks), otherwise use r.invested directly
+    totalInvested += c._investedINR !== undefined ? c._investedINR : (r.invested || 0);
     totalGL += c.gl || 0;
     totalDGL += c.dailyGL || 0;
   });
@@ -465,6 +468,10 @@ function mkPageHeader(title, subtitle, rows, calcFn) {
       <div class="panel-subtitle">${subtitle}</div>
     </div>
     <div class="panel-summary">
+      <div class="ps-item">
+        <div class="ps-label">Invested Value</div>
+        <div class="ps-value">${fmtINR(totalInvested)}</div>
+      </div>
       <div class="ps-item">
         <div class="ps-label">Total Value</div>
         <div class="ps-value">${fmtINR(totalVal)}</div>
@@ -567,7 +574,8 @@ function buildStocksPanel(el,exchange) {
   // For US stocks, wrap calcStock to convert USD values to INR for the header totals
   const headerCalcFn = isUS
     ? (s) => { const c = calcStock(s); const fx = getUsdInr();
-               return { curVal: c.curVal * fx, gl: c.gl * fx, dailyGL: c.dailyGL * fx }; }
+               return { curVal: c.curVal * fx, gl: c.gl * fx, dailyGL: c.dailyGL * fx,
+                        _investedINR: s.invested * fx }; }
     : calcStock;
   el.innerHTML = mkPageHeader(isUS?'US Equity (NASDAQ)':'Indian Equity (NSE/BSE)', rows.length+' stocks', rows, headerCalcFn)
     + mkControls(id,true,'stock',exchange,cols,'stock')
