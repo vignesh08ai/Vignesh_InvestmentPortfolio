@@ -62,62 +62,72 @@
   "fixedDeposits": [
     {
       "bank": "KMBF",
-      "fdNumber": "73646",
+      "fdNumber": "12233",
       "invested": 100000,
       "rate": 10,
-      "startDate": "2025-06-01",
-      "maturityDate": "2026-05-30",
-      "maturityValue": 109945.21,
+      "startDate": "2026-01-01",
+      "maturityDate": "2026-12-31",
+      "maturityValue": 0,
       "status": "Active"
     },
     {
       "bank": "KMBF",
-      "fdNumber": "78646",
+      "fdNumber": "9098",
       "invested": 90000,
       "rate": 10,
-      "startDate": "2025-06-01",
-      "maturityDate": "2026-05-30",
-      "maturityValue": 98950.68,
+      "startDate": "2026-01-01",
+      "maturityDate": "2026-12-31",
+      "maturityValue": 0,
       "status": "Active"
     },
     {
-      "bank": "IDFC",
-      "fdNumber": "6355",
+      "bank": "HDFC_MINE",
+      "fdNumber": "1122",
       "invested": 50000,
-      "rate": 7,
-      "startDate": "2026-02-10",
-      "maturityDate": "2027-02-10",
-      "maturityValue": 53500,
+      "rate": 6.5,
+      "startDate": "2026-01-01",
+      "maturityDate": "2026-12-31",
+      "maturityValue": 0,
       "status": "Active"
     },
     {
-      "bank": "HDFC",
-      "fdNumber": "9886",
-      "invested": 30000,
-      "rate": 7,
-      "startDate": "2026-02-10",
-      "maturityDate": "2027-02-10",
-      "maturityValue": 32100,
-      "status": "Active"
-    },
-    {
-      "bank": "IDFC 5YR",
-      "fdNumber": "9877",
-      "invested": 70000,
-      "rate": 7.6,
-      "startDate": "2022-12-10",
-      "maturityDate": "2027-12-10",
-      "maturityValue": 96614.58,
-      "status": "Active"
-    },
-    {
-      "bank": "HDFC 5YR",
-      "fdNumber": "5654",
+      "bank": "HDFC_NANDHINI",
+      "fdNumber": "8977",
       "invested": 30000,
       "rate": 6.5,
-      "startDate": "2022-12-10",
-      "maturityDate": "2027-12-10",
-      "maturityValue": 39755.34,
+      "startDate": "2026-01-01",
+      "maturityDate": "2026-12-31",
+      "maturityValue": 0,
+      "status": "Active"
+    },
+    {
+      "bank": "IDFC_5YR",
+      "fdNumber": "81888",
+      "invested": 75000,
+      "rate": 6.5,
+      "startDate": "2022-12-31",
+      "maturityDate": "2027-12-31",
+      "maturityValue": 97000,
+      "status": "Active"
+    },
+    {
+      "bank": "HDFC_5YR",
+      "fdNumber": "7876",
+      "invested": 30000,
+      "rate": 6.5,
+      "startDate": "2023-01-01",
+      "maturityDate": "2027-12-31",
+      "maturityValue": 38000,
+      "status": "Active"
+    },
+    {
+      "bank": "VIGNESH_PF",
+      "fdNumber": "67755",
+      "invested": 300000,
+      "rate": 7.5,
+      "startDate": "2026-01-01",
+      "maturityDate": "2026-12-31",
+      "maturityValue": 0,
       "status": "Active"
     }
   ],
@@ -531,7 +541,7 @@
     },
     {
       "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
-      "symbol": "ARE&M.NS",
+      "symbol": "ARE&M .NS",
       "exchange": "NSE",
       "units": 10,
       "avgPrice": 827.17,
@@ -766,7 +776,7 @@
     {
       "name": "Sovereign Gold Bond (SGB)",
       "type": "SGB",
-      "symbol": "goldbees.ns",
+      "symbol": "goldbees.NS",
       "units": 460,
       "purchasePrice": 51,
       "invested": 23492
