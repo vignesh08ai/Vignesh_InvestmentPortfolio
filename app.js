@@ -20,7 +20,7 @@ let _editType   = null;
    Set PROXY_URL to your deployed Google Apps Script URL
    e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
 ═══════════════════════════════════════════════════════ */
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbxrJ6X1jkxfOjhfYfL1MKjdL_ypk9LOReNyAqxkJ_LjLXNlkT9Rnu7oKzDp4DM3UBulZg/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
+const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzxVL_v_0fkptl3khbVYQm7qk4q0YySn2kWm5KGyWkbnxKkEO4dW_93n8qo8Dd7_AKOOA/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
 
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 
@@ -64,7 +64,8 @@ async function fetchStocksViaProxy() {
   }
 
   async function proxyBatch(syms) {
-    const url = PROXY_URL + '?action=batch&stocks=' + encodeURIComponent(syms.join(','));
+    // Encode each symbol separately so & in symbols (e.g. ARE&M.NS) doesn't break the URL
+    const url = PROXY_URL + '?action=batch&stocks=' + syms.map(encodeURIComponent).join('%2C');
     const res = await fetch(url, { signal: AbortSignal.timeout(25000) });
     if (!res.ok) throw new Error('Proxy ' + res.status);
     const json = await res.json();
