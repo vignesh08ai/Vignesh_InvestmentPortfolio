@@ -564,7 +564,12 @@ function buildStocksPanel(el,exchange) {
   ];
   const cols = [...baseCols, ...usdInrCol, ...liveCols];
   const visibleCols = filterVisibleColumns(id, cols);
-  el.innerHTML = mkPageHeader(isUS?'US Equity (NASDAQ)':'Indian Equity (NSE/BSE)', rows.length+' stocks', rows, calcStock)
+  // For US stocks, wrap calcStock to convert USD values to INR for the header totals
+  const headerCalcFn = isUS
+    ? (s) => { const c = calcStock(s); const fx = getUsdInr();
+               return { curVal: c.curVal * fx, gl: c.gl * fx, dailyGL: c.dailyGL * fx }; }
+    : calcStock;
+  el.innerHTML = mkPageHeader(isUS?'US Equity (NASDAQ)':'Indian Equity (NSE/BSE)', rows.length+' stocks', rows, headerCalcFn)
     + mkControls(id,true,'stock',exchange,cols,'stock')
     + mkTable(id,visibleCols);
   renderTable(id,visibleCols,rows);
