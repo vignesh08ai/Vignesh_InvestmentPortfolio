@@ -3,24 +3,29 @@
 // ============================================================
 
 const CACHE_NAME = 'portfolio-v1';
+const BASE = '/Vignesh_InvestmentPortfolio';
 const STATIC_ASSETS = [
-  '/Vignesh_InvestmentPortfolio/',
-  '/Vignesh_InvestmentPortfolio/index.html',
-  '/Vignesh_InvestmentPortfolio/app.js',
-  '/Vignesh_InvestmentPortfolio/style.css',
-  '/Vignesh_InvestmentPortfolio/manifest.json',
+  BASE + '/',
+  BASE + '/index.html',
+  BASE + '/app.js',
+  BASE + '/style.css',
+  BASE + '/manifest.json',
+  BASE + '/portfolio.json',
 ];
 
-// Install — cache static assets
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(STATIC_ASSETS))
+      .then(cache => {
+        // Add each asset individually so one failure doesn't break all
+        return Promise.allSettled(
+          STATIC_ASSETS.map(url => cache.add(url).catch(e => console.warn('Cache miss:', url)))
+        );
+      })
       .then(() => self.skipWaiting())
   );
 });
 
-// Activate — clean up old caches
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -32,29 +37,30 @@ self.addEventListener('activate', event => {
   );
 });
 
-// Fetch — serve from cache, fall back to network
 self.addEventListener('fetch', event => {
-  // Don't cache API calls (live prices, GitHub)
   const url = new URL(event.request.url);
+
+  // Let API calls go straight to network — never cache these
   if (url.hostname.includes('script.google.com') ||
       url.hostname.includes('api.github.com') ||
       url.hostname.includes('mfapi.in') ||
-      url.hostname.includes('finance.yahoo.com')) {
-    return; // Let these go straight to network
+      url.hostname.includes('finance.yahoo.com') ||
+      url.hostname.includes('cdnjs.cloudflare.com')) {
+    return;
   }
 
   event.respondWith(
     caches.match(event.request)
-      .then(cached => cached || fetch(event.request)
-        .then(response => {
-          // Cache new static assets
+      .then(cached => {
+        if (cached) return cached;
+        return fetch(event.request).then(response => {
           if (response.ok && event.request.method === 'GET') {
             const clone = response.clone();
             caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
           }
           return response;
-        })
-      )
-      .catch(() => caches.match('/Vignesh_InvestmentPortfolio/index.html'))
+        });
+      })
+      .catch(() => caches.match(BASE + '/index.html'))
   );
 });
