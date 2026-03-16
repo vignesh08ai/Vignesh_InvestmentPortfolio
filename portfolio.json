@@ -103,11 +103,11 @@
     {
       "bank": "IDFC_5YR",
       "fdNumber": "81888",
-      "invested": 75000,
+      "invested": 70000,
       "rate": 6.5,
-      "startDate": "2022-12-31",
-      "maturityDate": "2027-12-31",
-      "maturityValue": 97000,
+      "startDate": "2022-12-10",
+      "maturityDate": "2027-12-10",
+      "maturityValue": 0,
       "status": "Active"
     },
     {
@@ -115,9 +115,9 @@
       "fdNumber": "7876",
       "invested": 30000,
       "rate": 6.5,
-      "startDate": "2023-01-01",
-      "maturityDate": "2027-12-31",
-      "maturityValue": 38000,
+      "startDate": "2022-12-10",
+      "maturityDate": "2027-12-10",
+      "maturityValue": 0,
       "status": "Active"
     },
     {
