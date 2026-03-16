@@ -20,7 +20,7 @@ let _editType   = null;
    Set PROXY_URL to your deployed Google Apps Script URL
    e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
 ═══════════════════════════════════════════════════════ */
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzX4oZ_fju7XuJoPWYSaj41Gr3XTZ_JcHu9mB9lDtdi2jUVQp72L_AU0_QsYKGkwRmEFQ/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
+const PROXY_URL = '';  // ← PASTE YOUR APPS SCRIPT URL HERE
 
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 
@@ -1131,11 +1131,18 @@ async function syncToGitHub() {
       headers:{"Authorization":`token ${token}`,"Accept":"application/vnd.github.v3+json","Content-Type":"application/json"},
       body:JSON.stringify({message:`Update ${new Date().toISOString()}`,content,sha:fileData.sha})
     });
-    if (!updateResp.ok) throw new Error("Update failed");
+    if (!updateResp.ok) {
+      const errData = await updateResp.json().catch(()=>({}));
+      if (updateResp.status === 401 || updateResp.status === 403) {
+        localStorage.removeItem(GITHUB_TOKEN_KEY);
+        throw new Error(`Token error (${updateResp.status}): ${errData.message || 'Invalid or expired token — please re-enter'}`);
+      }
+      throw new Error(`Update failed (${updateResp.status}): ${errData.message || 'Unknown error'}`);
+    }
     hideSpinner(); showToast("✅ Synced to GitHub!", "success");
   } catch (e) {
     hideSpinner(); showToast(`❌ ${e.message}`, "error");
-    if (e.message.includes("401")) localStorage.removeItem(GITHUB_TOKEN_KEY);
+    if (e.message.includes("401") || e.message.includes("403")) localStorage.removeItem(GITHUB_TOKEN_KEY);
   }
 }
 
