@@ -129,6 +129,16 @@
       "maturityDate": "2026-12-31",
       "maturityValue": 0,
       "status": "Active"
+    },
+    {
+      "bank": "Nandhini_PF",
+      "fdNumber": "67866",
+      "invested": 500000,
+      "rate": 7,
+      "startDate": "2026-01-01",
+      "maturityDate": "2026-12-31",
+      "maturityValue": 0,
+      "status": "Active"
     }
   ],
   "mutualFunds": [
