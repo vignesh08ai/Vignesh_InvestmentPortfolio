@@ -307,14 +307,6 @@
       "returnPct": 10.9926
     },
     {
-      "name": "Axis Global Equity Alpha FOF-Regular-Growth",
-      "schemeCode": "148485",
-      "owner": "Family",
-      "units": 444.842,
-      "purchaseNAV": 23.82,
-      "invested": 10599.695
-    },
-    {
       "name": "DSP ELSS Tax Saver Fund",
       "schemeCode": "119242",
       "owner": "Family",
@@ -334,9 +326,9 @@
       "name": "Mirae Asset ELSS Tax Saver Fund",
       "schemeCode": "135781",
       "owner": "Family",
-      "units": 2203.927,
+      "units": 1953.927,
       "purchaseNAV": 38.34,
-      "invested": 84501.65
+      "invested": 74915.927
     },
     {
       "name": "Parag Parikh Flexi Cap Fund",
@@ -450,6 +442,14 @@
       "units": 12.195,
       "purchaseNAV": 1557.75,
       "invested": 18996.71
+    },
+    {
+      "name": "Axis Small Cap Fund",
+      "schemeCode": "125354",
+      "owner": "Family",
+      "units": 17.595,
+      "purchaseNAV": 113.66,
+      "invested": 1999.936
     }
   ],
   "stocks": [
