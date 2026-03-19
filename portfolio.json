@@ -154,9 +154,9 @@
       "name": "ICICI Prudential Business Cycle Fund-Growth",
       "schemeCode": "148653",
       "owner": "Mahesh",
-      "units": 17242.79,
-      "purchaseNAV": 21.8631,
-      "invested": 376981.23
+      "units": 17766.43,
+      "purchaseNAV": 21.9223,
+      "invested": 389480.61
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
@@ -206,9 +206,9 @@
       "name": "SBI Large & Midcap-Direct-Div",
       "schemeCode": "103024",
       "owner": "Mahesh",
-      "units": 554.95,
-      "purchaseNAV": 558.584,
-      "invested": 309984.5
+      "units": 571.26,
+      "purchaseNAV": 560.1343,
+      "invested": 319984
     },
     {
       "name": "Tata Banking and Financial Services Fund Growth (SIP)",
@@ -649,9 +649,9 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.070472,
-      "avgPrice": 396.47,
-      "invested": 27.94
+      "units": 0.078171,
+      "avgPrice": 395.67,
+      "invested": 30.93
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
@@ -659,7 +659,7 @@
       "exchange": "NASDAQ",
       "units": 0.181282,
       "avgPrice": 209.07,
-      "invested": 32.9
+      "invested": 37.9
     },
     {
       "name": "Invesco QQQ ETF (NASDAQ 100)",
@@ -673,9 +673,9 @@
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.172283,
-      "avgPrice": 625.48,
-      "invested": 107.76
+      "units": 0.180545,
+      "avgPrice": 624.5,
+      "invested": 112.75
     },
     {
       "name": "Oracle",
@@ -777,6 +777,14 @@
       "name": "Unitedhealth Group",
       "symbol": "UNH",
       "exchange": "NSE",
+      "units": 0.017377,
+      "avgPrice": 287.16,
+      "invested": 4.99
+    },
+    {
+      "name": "Unitedhealth Group",
+      "symbol": "UNH",
+      "exchange": "NASDAQ",
       "units": 0.017377,
       "avgPrice": 287.16,
       "invested": 4.99
