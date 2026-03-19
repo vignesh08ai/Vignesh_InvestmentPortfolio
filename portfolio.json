@@ -649,41 +649,41 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.057871,
-      "avgPrice": 396.57,
-      "invested": 22.95
+      "units": 0.070472,
+      "avgPrice": 396.47,
+      "invested": 27.94
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
       "symbol": "AMZN",
       "exchange": "NASDAQ",
-      "units": 0.157463,
-      "avgPrice": 209,
-      "invested": 32.91
+      "units": 0.181282,
+      "avgPrice": 209.07,
+      "invested": 32.9
     },
     {
       "name": "Invesco QQQ ETF (NASDAQ 100)",
       "symbol": "QQQ",
       "exchange": "NASDAQ",
-      "units": 0.195705,
-      "avgPrice": 609.45,
-      "invested": 119.27
+      "units": 0.212473,
+      "avgPrice": 608.33,
+      "invested": 129.26
     },
     {
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.147788,
-      "avgPrice": 627.86,
-      "invested": 92.79
+      "units": 0.172283,
+      "avgPrice": 625.48,
+      "invested": 107.76
     },
     {
       "name": "Oracle",
       "symbol": "ORCL",
       "exchange": "NASDAQ",
-      "units": 0.165307,
-      "avgPrice": 150.93,
-      "invested": 24.95
+      "units": 0.177332,
+      "avgPrice": 151.92,
+      "invested": 26.94
     },
     {
       "name": "TATA MOTORS PASSENGER VEHICLES LIMITED",
@@ -745,9 +745,9 @@
       "name": "FTSE Developed Market Index",
       "symbol": "VEA",
       "exchange": "NASDAQ",
-      "units": 0.303026,
-      "avgPrice": 65.8,
-      "invested": 19.94
+      "units": 0.349702,
+      "avgPrice": 64.57,
+      "invested": 22.93
     },
     {
       "name": "Movalue",
@@ -772,6 +772,14 @@
       "units": 15,
       "avgPrice": 118.18,
       "invested": 1772.75
+    },
+    {
+      "name": "Unitedhealth Group",
+      "symbol": "UNH",
+      "exchange": "NSE",
+      "units": 0.017377,
+      "avgPrice": 287.16,
+      "invested": 4.99
     }
   ],
   "gold": [
