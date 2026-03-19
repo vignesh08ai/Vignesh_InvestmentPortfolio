@@ -447,9 +447,9 @@
       "name": "Axis Small Cap Fund",
       "schemeCode": "125354",
       "owner": "Family",
-      "units": 17.595,
-      "purchaseNAV": 113.66,
-      "invested": 1999.936
+      "units": 22.065,
+      "purchaseNAV": 113.29,
+      "invested": 2499.898
     }
   ],
   "stocks": [
@@ -468,14 +468,6 @@
       "units": 45,
       "avgPrice": 114.15,
       "invested": 5136.75
-    },
-    {
-      "name": "Nippon India ETF Gold BeES",
-      "symbol": "GOLDBEES.NS",
-      "exchange": "NSE",
-      "units": 42,
-      "avgPrice": 106.07,
-      "invested": 4454.94
     },
     {
       "name": "IDFC FIRST BANK LIMITED",
