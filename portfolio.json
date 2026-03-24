@@ -734,14 +734,6 @@
       "invested": 2630.5
     },
     {
-      "name": "EPAM SYSTEMS",
-      "symbol": "epam",
-      "exchange": "NASDAQ",
-      "units": 0.17666,
-      "avgPrice": 141.23,
-      "invested": 24.95
-    },
-    {
       "name": "FTSE Developed Market Index",
       "symbol": "VEA",
       "exchange": "NASDAQ",
@@ -777,14 +769,6 @@
       "name": "Unitedhealth Group",
       "symbol": "UNH",
       "exchange": "NSE",
-      "units": 0.017377,
-      "avgPrice": 287.16,
-      "invested": 4.99
-    },
-    {
-      "name": "Unitedhealth Group",
-      "symbol": "UNH",
-      "exchange": "NASDAQ",
       "units": 0.017377,
       "avgPrice": 287.16,
       "invested": 4.99
