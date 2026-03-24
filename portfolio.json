@@ -649,9 +649,9 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.078171,
-      "avgPrice": 395.67,
-      "invested": 30.93
+      "units": 0.1042,
+      "avgPrice": 392.61,
+      "invested": 40.91
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
@@ -665,17 +665,17 @@
       "name": "Invesco QQQ ETF (NASDAQ 100)",
       "symbol": "QQQ",
       "exchange": "NASDAQ",
-      "units": 0.212473,
-      "avgPrice": 608.33,
-      "invested": 129.26
+      "units": 0.220927,
+      "avgPrice": 607.63,
+      "invested": 134.24
     },
     {
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.180545,
-      "avgPrice": 624.5,
-      "invested": 112.75
+      "units": 0.188767,
+      "avgPrice": 623.73,
+      "invested": 117.74
     },
     {
       "name": "Oracle",
