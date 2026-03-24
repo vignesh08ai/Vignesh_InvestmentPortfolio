@@ -65,8 +65,8 @@
       "fdNumber": "12233",
       "invested": 100000,
       "rate": 10,
-      "startDate": "2026-01-01",
-      "maturityDate": "2026-12-31",
+      "startDate": "2025-04-18",
+      "maturityDate": "2026-04-17",
       "maturityValue": 0,
       "status": "Active"
     },
@@ -75,8 +75,8 @@
       "fdNumber": "9098",
       "invested": 90000,
       "rate": 10,
-      "startDate": "2026-01-01",
-      "maturityDate": "2026-12-31",
+      "startDate": "2025-06-08",
+      "maturityDate": "2026-06-07",
       "maturityValue": 0,
       "status": "Active"
     },
@@ -170,9 +170,9 @@
       "name": "Invesco India Mid cap fund",
       "schemeCode": "105503",
       "owner": "Mahesh",
-      "units": 276.24,
-      "purchaseNAV": 180.9937,
-      "invested": 49997.52
+      "units": 350.55,
+      "purchaseNAV": 178.2839,
+      "invested": 62496.9
     },
     {
       "name": "Nippon India Power and Infra Fund Growth (SIP)",
