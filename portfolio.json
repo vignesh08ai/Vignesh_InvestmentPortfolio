@@ -486,14 +486,6 @@
       "invested": 6426.3
     },
     {
-      "name": "THE KARNATAKA BANK LIMITED",
-      "symbol": "KTKBANK.NS",
-      "exchange": "NSE",
-      "units": 46,
-      "avgPrice": 179.97,
-      "invested": 8278.62
-    },
-    {
       "name": "MANAPPURAM FINANCE LIMITED",
       "symbol": "MANAPPURAM.NS",
       "exchange": "NSE",
@@ -718,14 +710,6 @@
       "invested": 5892
     },
     {
-      "name": "Wipro",
-      "symbol": "Wipro.NS",
-      "exchange": "NSE",
-      "units": 30,
-      "avgPrice": 203.16,
-      "invested": 6094.95
-    },
-    {
       "name": "TCS",
       "symbol": "TCS.NS",
       "exchange": "BSE",
@@ -764,14 +748,6 @@
       "units": 15,
       "avgPrice": 118.18,
       "invested": 1772.75
-    },
-    {
-      "name": "Unitedhealth Group",
-      "symbol": "UNH",
-      "exchange": "NSE",
-      "units": 0.017377,
-      "avgPrice": 287.16,
-      "invested": 4.99
     }
   ],
   "gold": [
