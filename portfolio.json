@@ -473,9 +473,9 @@
       "name": "IDFC FIRST BANK LIMITED",
       "symbol": "IDFCFIRSTB.NS",
       "exchange": "NSE",
-      "units": 65,
-      "avgPrice": 65.29,
-      "invested": 4243.85
+      "units": 86,
+      "avgPrice": 64.82,
+      "invested": 5639.19
     },
     {
       "name": "ITC LIMITED",
@@ -505,9 +505,9 @@
       "name": "THE SOUTH INDIAN BANK LIMITED",
       "symbol": "SOUTHBANK.NS",
       "exchange": "BSE",
-      "units": 385,
-      "avgPrice": 27.63,
-      "invested": 10637.55
+      "units": 397,
+      "avgPrice": 27.86,
+      "invested": 11059.29
     },
     {
       "name": "THE TATA POWER COMPANY LIMITED",
@@ -630,14 +630,6 @@
       "invested": 5548
     },
     {
-      "name": "Zee Entertainment Enterprises Limited",
-      "symbol": "ZEEL.NS",
-      "exchange": "NSE",
-      "units": 20,
-      "avgPrice": 82.45,
-      "invested": 1649
-    },
-    {
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
@@ -681,17 +673,17 @@
       "name": "TATA MOTORS PASSENGER VEHICLES LIMITED",
       "symbol": "TMPV.BO",
       "exchange": "NSE",
-      "units": 60,
-      "avgPrice": 352.75,
-      "invested": 21165
+      "units": 62,
+      "avgPrice": 352.21,
+      "invested": 21837.07
     },
     {
       "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
       "symbol": "TMCV.BO",
       "exchange": "NSE",
-      "units": 40,
-      "avgPrice": 343.3,
-      "invested": 13732.13
+      "units": 46,
+      "avgPrice": 353.8,
+      "invested": 16274.83
     },
     {
       "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
@@ -713,9 +705,9 @@
       "name": "TCS",
       "symbol": "TCS.NS",
       "exchange": "BSE",
-      "units": 1,
-      "avgPrice": 2630.5,
-      "invested": 2630.5
+      "units": 3,
+      "avgPrice": 2540.4,
+      "invested": 7621.2
     },
     {
       "name": "FTSE Developed Market Index",
@@ -748,6 +740,14 @@
       "units": 15,
       "avgPrice": 118.18,
       "invested": 1772.75
+    },
+    {
+      "name": "Infosys",
+      "symbol": "Infy.NS",
+      "exchange": "NSE",
+      "units": 3,
+      "avgPrice": 1275.82,
+      "invested": 3827.45
     }
   ],
   "gold": [
