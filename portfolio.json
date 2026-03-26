@@ -748,6 +748,46 @@
       "units": 3,
       "avgPrice": 1275.82,
       "invested": 3827.45
+    },
+    {
+      "name": "INDUSINDBK ",
+      "symbol": "INDUSINDBK .NS",
+      "exchange": "NSE",
+      "units": 3,
+      "avgPrice": 796.33,
+      "invested": 2389
+    },
+    {
+      "name": "HDFC Bank",
+      "symbol": "HDFCBANK.NS",
+      "exchange": "NSE",
+      "units": 3,
+      "avgPrice": 764.39,
+      "invested": 3057.55
+    },
+    {
+      "name": "JYOTHYLAB ",
+      "symbol": "JYOTHYLAB NS",
+      "exchange": "NSE",
+      "units": 14,
+      "avgPrice": 210.14,
+      "invested": 3362.3
+    },
+    {
+      "name": "PETRONET ",
+      "symbol": "PETRONET.NS",
+      "exchange": "NSE",
+      "units": 5,
+      "avgPrice": 250.41,
+      "invested": 1252.05
+    },
+    {
+      "name": "Nippon India ETF Gold BEES - Vignesh",
+      "symbol": "GOLDBEES.NS",
+      "exchange": "NSE",
+      "units": 5,
+      "avgPrice": 119.47,
+      "invested": 597.35
     }
   ],
   "gold": [
