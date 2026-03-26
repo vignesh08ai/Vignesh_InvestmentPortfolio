@@ -454,7 +454,7 @@
   ],
   "stocks": [
     {
-      "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
+      "name": "AMARA RAJA - Vignesh",
       "symbol": "ARE&M.BO",
       "exchange": "BSE",
       "units": 15,
@@ -478,7 +478,7 @@
       "invested": 5639.19
     },
     {
-      "name": "ITC LIMITED",
+      "name": "ITC LIMITED - Vignesh",
       "symbol": "ITC.NS",
       "exchange": "NSE",
       "units": 30,
@@ -502,7 +502,7 @@
       "invested": 17169.6
     },
     {
-      "name": "THE SOUTH INDIAN BANK LIMITED",
+      "name": "SOUTH INDIAN BANK - Vignesh",
       "symbol": "SOUTHBANK.NS",
       "exchange": "BSE",
       "units": 397,
@@ -534,7 +534,7 @@
       "invested": 4476.12
     },
     {
-      "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
+      "name": "AMARA RAJA- Appa",
       "symbol": "ARE&M.BO",
       "exchange": "NSE",
       "units": 10,
@@ -670,7 +670,7 @@
       "invested": 26.94
     },
     {
-      "name": "TATA MOTORS PASSENGER VEHICLES LIMITED",
+      "name": "TMPV - Vignesh",
       "symbol": "TMPV.BO",
       "exchange": "NSE",
       "units": 62,
@@ -678,7 +678,7 @@
       "invested": 21837.07
     },
     {
-      "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
+      "name": "TMCV - Vignesh",
       "symbol": "TMCV.BO",
       "exchange": "NSE",
       "units": 46,
