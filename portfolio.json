@@ -633,9 +633,9 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.1042,
-      "avgPrice": 392.61,
-      "invested": 40.91
+      "units": 0.14668,
+      "avgPrice": 387.71,
+      "invested": 56.87
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
@@ -665,9 +665,9 @@
       "name": "Oracle",
       "symbol": "ORCL",
       "exchange": "NASDAQ",
-      "units": 0.177332,
-      "avgPrice": 151.92,
-      "invested": 26.94
+      "units": 0.210982,
+      "avgPrice": 151.34,
+      "invested": 31.93
     },
     {
       "name": "TMPV - Vignesh",
@@ -751,7 +751,7 @@
     },
     {
       "name": "INDUSINDBK ",
-      "symbol": "INDUSINDBK .NS",
+      "symbol": "INDUSINDBK.NS",
       "exchange": "NSE",
       "units": 3,
       "avgPrice": 796.33,
