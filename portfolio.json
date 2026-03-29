@@ -146,9 +146,9 @@
       "name": "Bandhan Multi Factor Fund",
       "schemeCode": "153721",
       "owner": "Mahesh",
-      "units": 1885.76,
-      "purchaseNAV": 10.6053,
-      "invested": 19999
+      "units": 2929.99,
+      "purchaseNAV": 10.2384,
+      "invested": 29998.5
     },
     {
       "name": "ICICI Prudential Business Cycle Fund-Growth",
@@ -633,9 +633,9 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.14668,
-      "avgPrice": 387.71,
-      "invested": 56.87
+      "units": 0.154803,
+      "avgPrice": 386.68,
+      "invested": 59.86
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
@@ -649,17 +649,17 @@
       "name": "Invesco QQQ ETF (NASDAQ 100)",
       "symbol": "QQQ",
       "exchange": "NASDAQ",
-      "units": 0.220927,
-      "avgPrice": 607.63,
-      "invested": 134.24
+      "units": 0.238341,
+      "avgPrice": 605.11,
+      "invested": 144.32
     },
     {
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.188767,
-      "avgPrice": 623.73,
-      "invested": 117.74
+      "units": 0.205613,
+      "avgPrice": 621.17,
+      "invested": 127.72
     },
     {
       "name": "Oracle",
