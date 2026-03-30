@@ -318,9 +318,9 @@
       "name": "Kotak Large & Midcap Fund",
       "schemeCode": "120158",
       "owner": "Family",
-      "units": 128.604,
-      "purchaseNAV": 386.44,
-      "invested": 49698.23
+      "units": 135.278,
+      "purchaseNAV": 370.225,
+      "invested": 52198.369
     },
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
@@ -334,9 +334,9 @@
       "name": "Parag Parikh Flexi Cap Fund",
       "schemeCode": "122639",
       "owner": "Family",
-      "units": 552.1,
-      "purchaseNAV": 90.56,
-      "invested": 49997.51
+      "units": 563.594,
+      "purchaseNAV": 86.4452,
+      "invested": 50997.367
     },
     {
       "name": "Quant ELSS Tax Saver Fund",
@@ -355,9 +355,9 @@
       "name": "Zerodha Gold ETF FoF-Direct Plan - Growth Option",
       "schemeCode": "153011",
       "owner": "Family",
-      "units": 793.727,
-      "purchaseNAV": 18.9,
-      "invested": 14999.3
+      "units": 845.27,
+      "purchaseNAV": 18.5905,
+      "invested": 15999.271
     },
     {
       "name": "ICICI PRUDENTIAL MULTI ASSET FUND",
@@ -447,9 +447,9 @@
       "name": "Axis Small Cap Fund",
       "schemeCode": "125354",
       "owner": "Family",
-      "units": 22.065,
-      "purchaseNAV": 113.29,
-      "invested": 2499.898
+      "units": 58.361,
+      "purchaseNAV": 110.38,
+      "invested": 6499.781
     }
   ],
   "stocks": [
