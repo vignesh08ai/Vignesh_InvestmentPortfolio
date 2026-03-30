@@ -319,7 +319,7 @@
       "schemeCode": "120158",
       "owner": "Family",
       "units": 135.278,
-      "purchaseNAV": 370.225,
+      "purchaseNAV": 385.86,
       "invested": 52198.369
     },
     {
@@ -335,7 +335,7 @@
       "schemeCode": "122639",
       "owner": "Family",
       "units": 563.594,
-      "purchaseNAV": 86.4452,
+      "purchaseNAV": 90.48,
       "invested": 50997.367
     },
     {
@@ -356,7 +356,7 @@
       "schemeCode": "153011",
       "owner": "Family",
       "units": 845.27,
-      "purchaseNAV": 18.5905,
+      "purchaseNAV": 18.92,
       "invested": 15999.271
     },
     {
@@ -448,15 +448,15 @@
       "schemeCode": "125354",
       "owner": "Family",
       "units": 58.361,
-      "purchaseNAV": 110.38,
+      "purchaseNAV": 111.37,
       "invested": 6499.781
     },
     {
       "name": "Tata Digital Fund",
       "schemeCode": "135800",
       "owner": "Family",
-      "units": 44.48,
-      "purchaseNAV": 44.7317,
+      "units": 314.665,
+      "purchaseNAV": 44.48,
       "invested": 13999.131
     }
   ],
