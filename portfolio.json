@@ -450,6 +450,14 @@
       "units": 58.361,
       "purchaseNAV": 110.38,
       "invested": 6499.781
+    },
+    {
+      "name": "Tata Digital Fund",
+      "schemeCode": "135800",
+      "owner": "Family",
+      "units": 44.48,
+      "purchaseNAV": 44.7317,
+      "invested": 13999.131
     }
   ],
   "stocks": [
