@@ -470,7 +470,7 @@
       "invested": 10834.05
     },
     {
-      "name": "FEDERAL BANK LTD - Vignesh",
+      "name": "FEDERAL BANK - Vignesh",
       "symbol": "FEDERALBNK.NS",
       "exchange": "NSE",
       "units": 45,
@@ -478,7 +478,7 @@
       "invested": 5136.75
     },
     {
-      "name": "IDFC FIRST BANK LIMITED - Vignesh",
+      "name": "IDFC FIRST BANK - Vignesh",
       "symbol": "IDFCFIRSTB.NS",
       "exchange": "NSE",
       "units": 90,
@@ -494,7 +494,7 @@
       "invested": 6426.3
     },
     {
-      "name": "MANAPPURAM FINANCE LIMITED",
+      "name": "MANAPPURAM FINANCE - Vignesh",
       "symbol": "MANAPPURAM.NS",
       "exchange": "NSE",
       "units": 20,
@@ -502,7 +502,7 @@
       "invested": 3993
     },
     {
-      "name": "NATCO PHARMA LIMITED",
+      "name": "NATCO PHARMA - Vignesh",
       "symbol": "NATCOPHARM.NS",
       "exchange": "NSE",
       "units": 20,
@@ -518,7 +518,7 @@
       "invested": 11162.46
     },
     {
-      "name": "TATA POWER COMPANY LIMITED - Vignesh",
+      "name": "TATA POWER - Vignesh",
       "symbol": "TATAPOWER.NS",
       "exchange": "NSE",
       "units": 20,
@@ -558,7 +558,7 @@
       "invested": 346.7
     },
     {
-      "name": "MANAPPURAM FINANCE LIMITED",
+      "name": "MANAPPURAM FINANCE",
       "symbol": "MANAPPURAM.NS",
       "exchange": "NSE",
       "units": 35,
@@ -574,7 +574,7 @@
       "invested": 1610.85
     },
     {
-      "name": "THE SOUTH INDIAN BANK LIMITED",
+      "name": "SOUTH INDIAN BANK",
       "symbol": "SOUTHBANK.NS",
       "exchange": "NSE",
       "units": 179,
@@ -582,7 +582,7 @@
       "invested": 4587.45
     },
     {
-      "name": "AMARA RAJA ENERGY & MOBILITY LIMITED",
+      "name": "AMARA RAJA",
       "symbol": "ARE&M.BO",
       "exchange": "NSE",
       "units": 8,
@@ -694,7 +694,7 @@
       "invested": 17081.58
     },
     {
-      "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
+      "name": "TMCV",
       "symbol": "TMCV.BO",
       "exchange": "BSE",
       "units": 14,
@@ -702,7 +702,7 @@
       "invested": 2666
     },
     {
-      "name": "TATA MOTORS PASSENGER VEHICLES LIMITED",
+      "name": "TMPV",
       "symbol": "TMPV.BO",
       "exchange": "NSE",
       "units": 14,
