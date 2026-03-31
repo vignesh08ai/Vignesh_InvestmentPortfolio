@@ -470,7 +470,7 @@
       "invested": 10834.05
     },
     {
-      "name": "THE FEDERAL BANK LTD",
+      "name": "FEDERAL BANK LTD - Vignesh",
       "symbol": "FEDERALBNK.NS",
       "exchange": "NSE",
       "units": 45,
@@ -478,12 +478,12 @@
       "invested": 5136.75
     },
     {
-      "name": "IDFC FIRST BANK LIMITED",
+      "name": "IDFC FIRST BANK LIMITED - Vignesh",
       "symbol": "IDFCFIRSTB.NS",
       "exchange": "NSE",
-      "units": 86,
-      "avgPrice": 64.82,
-      "invested": 5639.19
+      "units": 90,
+      "avgPrice": 64.68,
+      "invested": 5821.37
     },
     {
       "name": "ITC LIMITED - Vignesh",
@@ -513,12 +513,12 @@
       "name": "SOUTH INDIAN BANK - Vignesh",
       "symbol": "SOUTHBANK.NS",
       "exchange": "BSE",
-      "units": 397,
-      "avgPrice": 27.86,
-      "invested": 11059.29
+      "units": 400,
+      "avgPrice": 27.9,
+      "invested": 11162.46
     },
     {
-      "name": "THE TATA POWER COMPANY LIMITED",
+      "name": "TATA POWER COMPANY LIMITED - Vignesh",
       "symbol": "TATAPOWER.NS",
       "exchange": "NSE",
       "units": 20,
@@ -526,7 +526,7 @@
       "invested": 2742
     },
     {
-      "name": "TATA STEEL LIMITED",
+      "name": "TATA STEEL LIMITED - Vignesh",
       "symbol": "TATASTEEL.NS",
       "exchange": "NSE",
       "units": 55,
@@ -534,12 +534,12 @@
       "invested": 6875.55
     },
     {
-      "name": "ZYDUS LIFESCIENCES LIMITED",
+      "name": "ZYDUS LIFESCIENCES LIMITED - Vignesh",
       "symbol": "ZYDUSLIFE.NS",
       "exchange": "NSE",
-      "units": 6,
-      "avgPrice": 746.02,
-      "invested": 4476.12
+      "units": 7,
+      "avgPrice": 764.33,
+      "invested": 5350.35
     },
     {
       "name": "AMARA RAJA- Appa",
@@ -689,9 +689,9 @@
       "name": "TMCV - Vignesh",
       "symbol": "TMCV.BO",
       "exchange": "NSE",
-      "units": 46,
-      "avgPrice": 353.8,
-      "invested": 16274.83
+      "units": 48,
+      "avgPrice": 355.86,
+      "invested": 17081.58
     },
     {
       "name": "TATA MOTORS COMMERCIAL VEHICLES LIMITED",
@@ -710,7 +710,7 @@
       "invested": 5892
     },
     {
-      "name": "TCS",
+      "name": "TCS - Vignesh",
       "symbol": "TCS.NS",
       "exchange": "BSE",
       "units": 3,
@@ -750,7 +750,7 @@
       "invested": 1772.75
     },
     {
-      "name": "Infosys",
+      "name": "Infosys - Vignesh",
       "symbol": "Infy.NS",
       "exchange": "NSE",
       "units": 3,
@@ -758,7 +758,7 @@
       "invested": 3827.45
     },
     {
-      "name": "INDUSINDBK ",
+      "name": "INDUSINDBK  - Vignesh",
       "symbol": "INDUSINDBK.NS",
       "exchange": "NSE",
       "units": 3,
@@ -766,36 +766,28 @@
       "invested": 2389
     },
     {
-      "name": "HDFC Bank",
+      "name": "HDFC Bank - Vignesh",
       "symbol": "HDFCBANK.NS",
       "exchange": "NSE",
-      "units": 3,
-      "avgPrice": 764.39,
-      "invested": 3057.55
+      "units": 6,
+      "avgPrice": 758.51,
+      "invested": 4551.1
     },
     {
-      "name": "JYOTHYLAB ",
+      "name": "JYOTHYLAB  - Vignesh",
       "symbol": "JYOTHYLAB.NS",
       "exchange": "NSE",
-      "units": 14,
-      "avgPrice": 210.14,
-      "invested": 3362.3
+      "units": 17,
+      "avgPrice": 209.57,
+      "invested": 3772.4
     },
     {
-      "name": "PETRONET ",
-      "symbol": "PETRONET.NS",
+      "name": "Cipla - Vignesh",
+      "symbol": "CIPLA.NS",
       "exchange": "NSE",
-      "units": 5,
-      "avgPrice": 250.41,
-      "invested": 1252.05
-    },
-    {
-      "name": "Nippon India ETF Gold BEES - Vignesh",
-      "symbol": "GOLDBEES.NS",
-      "exchange": "NSE",
-      "units": 5,
-      "avgPrice": 119.47,
-      "invested": 597.35
+      "units": 1,
+      "avgPrice": 1229.8,
+      "invested": 1229.8
     }
   ],
   "gold": [
