@@ -318,17 +318,17 @@
       "name": "Kotak Large & Midcap Fund",
       "schemeCode": "120158",
       "owner": "Family",
-      "units": 135.278,
-      "purchaseNAV": 385.86,
-      "invested": 52198.369
+      "units": 139.346,
+      "purchaseNAV": 385.35,
+      "invested": 53698.081
     },
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
       "schemeCode": "135781",
       "owner": "Family",
-      "units": 1953.927,
-      "purchaseNAV": 38.74,
-      "invested": 75697.086
+      "units": 1659.927,
+      "purchaseNAV": 39.53,
+      "invested": 65617.248
     },
     {
       "name": "Parag Parikh Flexi Cap Fund",
@@ -355,9 +355,9 @@
       "name": "Zerodha Gold ETF FoF-Direct Plan - Growth Option",
       "schemeCode": "153011",
       "owner": "Family",
-      "units": 845.27,
-      "purchaseNAV": 18.92,
-      "invested": 15999.271
+      "units": 897.117,
+      "purchaseNAV": 18.94,
+      "invested": 16999.201
     },
     {
       "name": "ICICI PRUDENTIAL MULTI ASSET FUND",
@@ -370,15 +370,10 @@
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
       "schemeCode": "135781",
-      "folioNumber": "",
       "owner": "Family",
       "units": 1726.851,
       "purchaseNAV": 43.72,
-      "invested": 75497.9257,
-      "currentNAV": 57.4,
-      "currentValue": 99121.2474,
-      "gainLoss": 23623.3217,
-      "returnPct": 31.29
+      "invested": 75490.12
     },
     {
       "name": "Quant ELSS Tax Saver Fund",
@@ -447,17 +442,17 @@
       "name": "Axis Small Cap Fund",
       "schemeCode": "125354",
       "owner": "Family",
-      "units": 58.361,
-      "purchaseNAV": 111.37,
-      "invested": 6499.781
+      "units": 85.307,
+      "purchaseNAV": 111.36,
+      "invested": 9499.793
     },
     {
       "name": "Tata Digital Fund",
       "schemeCode": "135800",
       "owner": "Family",
-      "units": 314.665,
-      "purchaseNAV": 44.48,
-      "invested": 13999.131
+      "units": 401.054,
+      "purchaseNAV": 44.88,
+      "invested": 17999.099
     }
   ],
   "stocks": [
@@ -481,9 +476,9 @@
       "name": "IDFC FIRST BANK - Vignesh",
       "symbol": "IDFCFIRSTB.NS",
       "exchange": "NSE",
-      "units": 90,
-      "avgPrice": 64.68,
-      "invested": 5821.37
+      "units": 94,
+      "avgPrice": 64.53,
+      "invested": 6066.69
     },
     {
       "name": "ITC LIMITED - Vignesh",
@@ -537,17 +532,17 @@
       "name": "ZYDUS LIFESCIENCES LIMITED - Vignesh",
       "symbol": "ZYDUSLIFE.NS",
       "exchange": "NSE",
-      "units": 7,
-      "avgPrice": 764.33,
-      "invested": 5350.35
+      "units": 8,
+      "avgPrice": 7673.84,
+      "invested": 6190.75
     },
     {
       "name": "AMARA RAJA- Appa",
       "symbol": "ARE&M.BO",
       "exchange": "NSE",
-      "units": 10,
-      "avgPrice": 827.17,
-      "invested": 8271.7
+      "units": 11,
+      "avgPrice": 817.02,
+      "invested": 8987.25
     },
     {
       "name": "ITC LIMITED",
@@ -593,9 +588,9 @@
       "name": "ICICI Pru Nifty FMCG ETF",
       "symbol": "FMCGIETF.NS",
       "exchange": "NSE",
-      "units": 105,
-      "avgPrice": 54.43,
-      "invested": 5715.04
+      "units": 120,
+      "avgPrice": 53.92,
+      "invested": 6470.24
     },
     {
       "name": "Nippon India ETF Gold BeES",
@@ -609,9 +604,9 @@
       "name": "Nippon India ETF Nifty IT",
       "symbol": "ITBEES.NS",
       "exchange": "NSE",
-      "units": 137,
-      "avgPrice": 38.43,
-      "invested": 5265.47
+      "units": 144,
+      "avgPrice": 38.21,
+      "invested": 5501.64
     },
     {
       "name": "ITC LIMITED",
@@ -641,41 +636,41 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.154803,
-      "avgPrice": 386.68,
-      "invested": 59.86
+      "units": 0.187365,
+      "avgPrice": 383.32,
+      "invested": 71.82
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
       "symbol": "AMZN",
       "exchange": "NASDAQ",
-      "units": 0.181282,
-      "avgPrice": 209.07,
-      "invested": 37.9
+      "units": 0.206773,
+      "avgPrice": 212.21,
+      "invested": 43.88
     },
     {
       "name": "Invesco QQQ ETF (NASDAQ 100)",
       "symbol": "QQQ",
       "exchange": "NASDAQ",
-      "units": 0.238341,
-      "avgPrice": 605.11,
-      "invested": 144.32
+      "units": 0.24714,
+      "avgPrice": 603.76,
+      "invested": 149.21
     },
     {
       "name": "Vanguard 500 Idx;ETF (ARCX:VOO)",
       "symbol": "VOO",
       "exchange": "NASDAQ",
-      "units": 0.205613,
-      "avgPrice": 621.17,
-      "invested": 127.72
+      "units": 0.214101,
+      "avgPrice": 619.85,
+      "invested": 132.71
     },
     {
       "name": "Oracle",
       "symbol": "ORCL",
       "exchange": "NASDAQ",
-      "units": 0.210982,
-      "avgPrice": 151.34,
-      "invested": 31.93
+      "units": 0.275976,
+      "avgPrice": 148.2,
+      "invested": 40.9
     },
     {
       "name": "TMPV - Vignesh",
@@ -689,9 +684,9 @@
       "name": "TMCV - Vignesh",
       "symbol": "TMCV.BO",
       "exchange": "NSE",
-      "units": 48,
-      "avgPrice": 355.86,
-      "invested": 17081.58
+      "units": 49,
+      "avgPrice": 356.33,
+      "invested": 17460.28
     },
     {
       "name": "TMCV",
@@ -737,17 +732,17 @@
       "name": "MOREALTY",
       "symbol": "MOREALTY.NS",
       "exchange": "NSE",
-      "units": 5,
-      "avgPrice": 72.52,
-      "invested": 362.6
+      "units": 11,
+      "avgPrice": 71.72,
+      "invested": 788.95
     },
     {
       "name": "MOVALUE",
       "symbol": "MOVALUE.NS",
       "exchange": "NSE",
-      "units": 15,
-      "avgPrice": 118.18,
-      "invested": 1772.75
+      "units": 27,
+      "avgPrice": 115.72,
+      "invested": 2124.33
     },
     {
       "name": "Infosys - Vignesh",
@@ -777,7 +772,7 @@
       "name": "JYOTHYLAB  - Vignesh",
       "symbol": "JYOTHYLAB.NS",
       "exchange": "NSE",
-      "units": 17,
+      "units": 18,
       "avgPrice": 209.57,
       "invested": 3772.4
     },
@@ -788,6 +783,22 @@
       "units": 1,
       "avgPrice": 1229.8,
       "invested": 1229.8
+    },
+    {
+      "name": "Cipla - Appa",
+      "symbol": "CIPLA.NS",
+      "exchange": "NSE",
+      "units": 3,
+      "avgPrice": 1203.32,
+      "invested": 3609.95
+    },
+    {
+      "name": "HDFC Bank - Appa",
+      "symbol": "hdfc.ns",
+      "exchange": "NSE",
+      "units": 2,
+      "avgPrice": 772.9,
+      "invested": 1545.8
     }
   ],
   "gold": [
