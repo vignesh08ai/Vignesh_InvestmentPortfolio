@@ -154,17 +154,17 @@
       "name": "ICICI Prudential Business Cycle Fund-Growth",
       "schemeCode": "148653",
       "owner": "Mahesh",
-      "units": 17766.43,
-      "purchaseNAV": 21.9223,
-      "invested": 389480.61
+      "units": 17891.06,
+      "purchaseNAV": 21.9372,
+      "invested": 392480.46
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
       "schemeCode": "145077",
       "owner": "Mahesh",
-      "units": 3692.33,
-      "purchaseNAV": 34.3939,
-      "invested": 126993.65
+      "units": 3777.85,
+      "purchaseNAV": 34.4094,
+      "invested": 129993.5
     },
     {
       "name": "Invesco India Mid cap fund",
@@ -178,9 +178,9 @@
       "name": "Nippon India Power and Infra Fund Growth (SIP)",
       "schemeCode": "101262",
       "owner": "Mahesh",
-      "units": 371.47,
-      "purchaseNAV": 341.8669,
-      "invested": 126993.65
+      "units": 380.14,
+      "purchaseNAV": 341.9613,
+      "invested": 129993.5
     },
     {
       "name": "Nippon India Small Cap Fund Growth (SIP)",
@@ -230,17 +230,17 @@
       "name": "Tata India Consumer Fund Growth",
       "schemeCode": "135804",
       "owner": "Mahesh",
-      "units": 2779.19,
-      "purchaseNAV": 42.2766,
-      "invested": 117494.37
+      "units": 2852.15,
+      "purchaseNAV": 42.2468,
+      "invested": 120494.22
     },
     {
       "name": "Tata India Pharma and Healthcare Fund Growth",
       "schemeCode": "135812",
       "owner": "Mahesh",
-      "units": 4115.46,
-      "purchaseNAV": 28.5495,
-      "invested": 117494.37
+      "units": 4220.46,
+      "purchaseNAV": 28.55,
+      "invested": 120494.22
     },
     {
       "name": "Tata Infrastructure Fund Growth (SIP)",
@@ -626,8 +626,8 @@
     },
     {
       "name": "REC LIMITED",
-      "symbol": "RECLTD.NS",
-      "exchange": "NSE",
+      "symbol": "RECLTD.bo",
+      "exchange": "BSE",
       "units": 15,
       "avgPrice": 369.87,
       "invested": 5548
