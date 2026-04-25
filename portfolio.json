@@ -476,9 +476,9 @@
       "name": "IDFC FIRST BANK - Vignesh",
       "symbol": "IDFCFIRSTB.NS",
       "exchange": "NSE",
-      "units": 94,
-      "avgPrice": 64.53,
-      "invested": 6066.69
+      "units": 95,
+      "avgPrice": 64.54,
+      "invested": 6130.88
     },
     {
       "name": "ITC LIMITED - Vignesh",
@@ -585,7 +585,7 @@
       "invested": 6687.5
     },
     {
-      "name": "ICICI Pru Nifty FMCG ETF",
+      "name": "ICICI Pru Nifty FMCG ETF - Appa",
       "symbol": "FMCGIETF.NS",
       "exchange": "NSE",
       "units": 120,
