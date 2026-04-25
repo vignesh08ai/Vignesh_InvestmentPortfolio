@@ -65,8 +65,8 @@
       "fdNumber": "12233",
       "invested": 100000,
       "rate": 10,
-      "startDate": "2025-04-18",
-      "maturityDate": "2026-04-17",
+      "startDate": "2026-04-17",
+      "maturityDate": "2027-04-17",
       "maturityValue": 110000,
       "status": "Active"
     },
@@ -97,7 +97,7 @@
       "rate": 6.5,
       "startDate": "2026-01-01",
       "maturityDate": "2026-12-31",
-      "maturityValue": 0,
+      "maturityValue": 34000,
       "status": "Active"
     },
     {
@@ -107,7 +107,7 @@
       "rate": 6.5,
       "startDate": "2022-12-10",
       "maturityDate": "2027-12-10",
-      "maturityValue": 0,
+      "maturityValue": 96000,
       "status": "Active"
     },
     {
@@ -154,41 +154,41 @@
       "name": "ICICI Prudential Business Cycle Fund-Growth",
       "schemeCode": "148653",
       "owner": "Mahesh",
-      "units": 17891.06,
-      "purchaseNAV": 21.9372,
-      "invested": 392480.46
+      "units": 18395.88,
+      "purchaseNAV": 22.0147,
+      "invested": 404979.84
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
       "schemeCode": "145077",
       "owner": "Mahesh",
-      "units": 3777.85,
-      "purchaseNAV": 34.4094,
-      "invested": 129993.5
+      "units": 3912.83,
+      "purchaseNAV": 34.5002,
+      "invested": 134993.25
     },
     {
       "name": "Invesco India Mid cap fund",
       "schemeCode": "105503",
       "owner": "Mahesh",
-      "units": 350.55,
-      "purchaseNAV": 178.2839,
-      "invested": 62496.9
+      "units": 420.28,
+      "purchaseNAV": 178.444,
+      "invested": 74996.28
     },
     {
       "name": "Nippon India Power and Infra Fund Growth (SIP)",
       "schemeCode": "101262",
       "owner": "Mahesh",
-      "units": 380.14,
-      "purchaseNAV": 341.9613,
-      "invested": 129993.5
+      "units": 393.54,
+      "purchaseNAV": 343.0247,
+      "invested": 134993.25
     },
     {
       "name": "Nippon India Small Cap Fund Growth (SIP)",
       "schemeCode": "113177",
       "owner": "Mahesh",
-      "units": 2212.35,
-      "purchaseNAV": 154.2404,
-      "invested": 341232.98
+      "units": 2279.3,
+      "purchaseNAV": 154.6452,
+      "invested": 352482.42
     },
     {
       "name": "Quant Mid Cap Fund Growth ",
@@ -206,57 +206,57 @@
       "name": "SBI Large & Midcap-Direct-Div",
       "schemeCode": "103024",
       "owner": "Mahesh",
-      "units": 571.26,
-      "purchaseNAV": 560.1343,
-      "invested": 319984
+      "units": 586.93,
+      "purchaseNAV": 562.2186,
+      "invested": 329983.5
     },
     {
       "name": "Tata Banking and Financial Services Fund Growth (SIP)",
       "schemeCode": "135794",
       "owner": "Mahesh",
-      "units": 1252.69,
-      "purchaseNAV": 38.3158,
-      "invested": 47997.76
+      "units": 1286.95,
+      "purchaseNAV": 38.4611,
+      "invested": 49497.69
     },
     {
       "name": "Tata Digital India Fund Growth (SIP)",
       "schemeCode": "135797",
       "owner": "Mahesh",
-      "units": 1805.88,
-      "purchaseNAV": 44.2976,
-      "invested": 79996.16
+      "units": 1867.04,
+      "purchaseNAV": 44.1854,
+      "invested": 82496.04
     },
     {
       "name": "Tata India Consumer Fund Growth",
       "schemeCode": "135804",
       "owner": "Mahesh",
-      "units": 2852.15,
-      "purchaseNAV": 42.2468,
-      "invested": 120494.22
+      "units": 2944.7,
+      "purchaseNAV": 42.2773,
+      "invested": 124494.03
     },
     {
       "name": "Tata India Pharma and Healthcare Fund Growth",
       "schemeCode": "135812",
       "owner": "Mahesh",
-      "units": 4220.46,
-      "purchaseNAV": 28.55,
-      "invested": 120494.22
+      "units": 4356.55,
+      "purchaseNAV": 28.5763,
+      "invested": 124494.03
     },
     {
       "name": "Tata Infrastructure Fund Growth (SIP)",
       "schemeCode": "101766",
       "owner": "Mahesh",
-      "units": 296.41,
-      "purchaseNAV": 161.9314,
-      "invested": 47997.76
+      "units": 3041,
+      "purchaseNAV": 162.2891,
+      "invested": 49497.69
     },
     {
       "name": "Tata Resources and Energy Fund Growth (SIP)",
       "schemeCode": "135815",
       "owner": "Mahesh",
-      "units": 1172.83,
-      "purchaseNAV": 40.9249,
-      "invested": 47997.76
+      "units": 1203.73,
+      "purchaseNAV": 41.1202,
+      "invested": 49497.69
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
@@ -675,7 +675,7 @@
     {
       "name": "TMPV - Vignesh",
       "symbol": "TMPV.BO",
-      "exchange": "NSE",
+      "exchange": "BSE",
       "units": 62,
       "avgPrice": 352.21,
       "invested": 21837.07
@@ -683,7 +683,7 @@
     {
       "name": "TMCV - Vignesh",
       "symbol": "TMCV.BO",
-      "exchange": "NSE",
+      "exchange": "BSE",
       "units": 49,
       "avgPrice": 356.33,
       "invested": 17460.28
@@ -699,7 +699,7 @@
     {
       "name": "TMPV",
       "symbol": "TMPV.BO",
-      "exchange": "NSE",
+      "exchange": "BSE",
       "units": 14,
       "avgPrice": 420.88,
       "invested": 5892
@@ -707,7 +707,7 @@
     {
       "name": "TCS - Vignesh",
       "symbol": "TCS.NS",
-      "exchange": "BSE",
+      "exchange": "NSE",
       "units": 3,
       "avgPrice": 2540.4,
       "invested": 7621.2
@@ -794,8 +794,8 @@
     },
     {
       "name": "HDFC Bank - Appa",
-      "symbol": "hdfc.ns",
-      "exchange": "NSE",
+      "symbol": "HDFC.BO",
+      "exchange": "BSE",
       "units": 2,
       "avgPrice": 772.9,
       "invested": 1545.8
