@@ -139,6 +139,16 @@
       "maturityDate": "2026-12-31",
       "maturityValue": 0,
       "status": "Active"
+    },
+    {
+      "bank": "Others in IDFC",
+      "fdNumber": "57789",
+      "invested": 77000,
+      "rate": 6,
+      "startDate": "2026-05-01",
+      "maturityDate": "2027-05-01",
+      "maturityValue": 78000,
+      "status": "Active"
     }
   ],
   "mutualFunds": [
@@ -146,49 +156,49 @@
       "name": "Bandhan Multi Factor Fund",
       "schemeCode": "153721",
       "owner": "Mahesh",
-      "units": 2929.99,
-      "purchaseNAV": 10.2384,
-      "invested": 29998.5
+      "units": 4940.1,
+      "purchaseNAV": 10.1207,
+      "invested": 49997.5
     },
     {
       "name": "ICICI Prudential Business Cycle Fund-Growth",
       "schemeCode": "148653",
       "owner": "Mahesh",
-      "units": 18395.88,
-      "purchaseNAV": 22.0147,
-      "invested": 404979.84
+      "units": 19036.45,
+      "purchaseNAV": 22.0881,
+      "invested": 420479.07
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
       "schemeCode": "145077",
       "owner": "Mahesh",
-      "units": 3912.83,
-      "purchaseNAV": 34.5002,
-      "invested": 134993.25
+      "units": 4126.52,
+      "purchaseNAV": 34.6522,
+      "invested": 142992.85
     },
     {
       "name": "Invesco India Mid cap fund",
       "schemeCode": "105503",
       "owner": "Mahesh",
-      "units": 420.28,
-      "purchaseNAV": 178.444,
-      "invested": 74996.28
+      "units": 489.72,
+      "purchaseNAV": 178.6647,
+      "invested": 87495.66
     },
     {
       "name": "Nippon India Power and Infra Fund Growth (SIP)",
       "schemeCode": "101262",
       "owner": "Mahesh",
-      "units": 393.54,
-      "purchaseNAV": 343.0247,
-      "invested": 134993.25
+      "units": 414.72,
+      "purchaseNAV": 344.7904,
+      "invested": 142992.85
     },
     {
       "name": "Nippon India Small Cap Fund Growth (SIP)",
       "schemeCode": "113177",
       "owner": "Mahesh",
-      "units": 2279.3,
-      "purchaseNAV": 154.6452,
-      "invested": 352482.42
+      "units": 2345.55,
+      "purchaseNAV": 155.0732,
+      "invested": 363731.86
     },
     {
       "name": "Quant Mid Cap Fund Growth ",
@@ -206,57 +216,49 @@
       "name": "SBI Large & Midcap-Direct-Div",
       "schemeCode": "103024",
       "owner": "Mahesh",
-      "units": 586.93,
-      "purchaseNAV": 562.2186,
-      "invested": 329983.5
+      "units": 602.94,
+      "purchaseNAV": 563.8781,
+      "invested": 339983
     },
     {
       "name": "Tata Banking and Financial Services Fund Growth (SIP)",
       "schemeCode": "135794",
       "owner": "Mahesh",
-      "units": 1286.95,
-      "purchaseNAV": 38.4611,
-      "invested": 49497.69
+      "units": 1322.94,
+      "purchaseNAV": 38.5487,
+      "invested": 50997.62
     },
     {
       "name": "Tata Digital India Fund Growth (SIP)",
       "schemeCode": "135797",
       "owner": "Mahesh",
-      "units": 1867.04,
-      "purchaseNAV": 44.1854,
-      "invested": 82496.04
+      "units": 1932.58,
+      "purchaseNAV": 43.9807,
+      "invested": 84995.92
     },
     {
       "name": "Tata India Consumer Fund Growth",
       "schemeCode": "135804",
       "owner": "Mahesh",
-      "units": 2944.7,
-      "purchaseNAV": 42.2773,
-      "invested": 124494.03
+      "units": 3102.84,
+      "purchaseNAV": 42.3785,
+      "invested": 131493.69
     },
     {
       "name": "Tata India Pharma and Healthcare Fund Growth",
       "schemeCode": "135812",
       "owner": "Mahesh",
-      "units": 4356.55,
-      "purchaseNAV": 28.5763,
-      "invested": 124494.03
-    },
-    {
-      "name": "Tata Infrastructure Fund Growth (SIP)",
-      "schemeCode": "101766",
-      "owner": "Mahesh",
-      "units": 3041,
-      "purchaseNAV": 162.2891,
-      "invested": 49497.69
+      "units": 4578.45,
+      "purchaseNAV": 28.7201,
+      "invested": 131493.69
     },
     {
       "name": "Tata Resources and Energy Fund Growth (SIP)",
       "schemeCode": "135815",
       "owner": "Mahesh",
-      "units": 1203.73,
-      "purchaseNAV": 41.1202,
-      "invested": 49497.69
+      "units": 1234.77,
+      "purchaseNAV": 41.3013,
+      "invested": 50997.62
     },
     {
       "name": "ICICI Prudential Manufacturing Fund-Growth",
@@ -318,25 +320,25 @@
       "name": "Kotak Large & Midcap Fund",
       "schemeCode": "120158",
       "owner": "Family",
-      "units": 139.346,
-      "purchaseNAV": 385.35,
-      "invested": 53698.081
+      "units": 145.662,
+      "purchaseNAV": 385.81,
+      "invested": 56198.03
     },
     {
       "name": "Mirae Asset ELSS Tax Saver Fund",
       "schemeCode": "135781",
       "owner": "Family",
-      "units": 1659.927,
-      "purchaseNAV": 39.53,
-      "invested": 65617.248
+      "units": 1319.927,
+      "purchaseNAV": 41.03,
+      "invested": 54159.89
     },
     {
       "name": "Parag Parikh Flexi Cap Fund",
       "schemeCode": "122639",
       "owner": "Family",
-      "units": 563.594,
-      "purchaseNAV": 90.48,
-      "invested": 50997.367
+      "units": 596.642,
+      "purchaseNAV": 90.5,
+      "invested": 53997.34
     },
     {
       "name": "Quant ELSS Tax Saver Fund",
@@ -355,9 +357,9 @@
       "name": "Zerodha Gold ETF FoF-Direct Plan - Growth Option",
       "schemeCode": "153011",
       "owner": "Family",
-      "units": 897.117,
-      "purchaseNAV": 18.94,
-      "invested": 16999.201
+      "units": 1401.237,
+      "purchaseNAV": 19.27,
+      "invested": 26998.74
     },
     {
       "name": "ICICI PRUDENTIAL MULTI ASSET FUND",
@@ -368,7 +370,7 @@
       "invested": 29998.74
     },
     {
-      "name": "Mirae Asset ELSS Tax Saver Fund",
+      "name": "Mirae Asset ELSS Tax Saver Fund - Nandhini",
       "schemeCode": "135781",
       "owner": "Family",
       "units": 1726.851,
@@ -442,17 +444,25 @@
       "name": "Axis Small Cap Fund",
       "schemeCode": "125354",
       "owner": "Family",
-      "units": 85.307,
-      "purchaseNAV": 111.36,
-      "invested": 9499.793
+      "units": 175.568,
+      "purchaseNAV": 116.76,
+      "invested": 20499.19
     },
     {
       "name": "Tata Digital Fund",
       "schemeCode": "135800",
       "owner": "Family",
-      "units": 401.054,
-      "purchaseNAV": 44.88,
-      "invested": 17999.099
+      "units": 615.466,
+      "purchaseNAV": 45.49,
+      "invested": 27998.61
+    },
+    {
+      "name": "Tata Infrastructure Fund Growth (SIP)",
+      "schemeCode": "101766",
+      "owner": "Mahesh",
+      "units": 313.66,
+      "purchaseNAV": 162.5904,
+      "invested": 50997.62
     }
   ],
   "stocks": [
@@ -601,7 +611,7 @@
       "invested": 1509.94
     },
     {
-      "name": "Nippon India ETF Nifty IT",
+      "name": "Nippon India ETF Nifty IT - Appa",
       "symbol": "ITBEES.NS",
       "exchange": "NSE",
       "units": 144,
@@ -609,7 +619,7 @@
       "invested": 5501.64
     },
     {
-      "name": "ITC LIMITED",
+      "name": "ITC LIMITED - Appa",
       "symbol": "ITC.NS",
       "exchange": "NSE",
       "units": 20,
@@ -617,7 +627,7 @@
       "invested": 6696.85
     },
     {
-      "name": "NATCO PHARMA LIMITED",
+      "name": "NATCO PHARMA LIMITED - Appa",
       "symbol": "NATCOPHARM.NS",
       "exchange": "NSE",
       "units": 8,
@@ -625,7 +635,7 @@
       "invested": 6822.25
     },
     {
-      "name": "REC LIMITED",
+      "name": "REC LIMITED - Appa",
       "symbol": "RECLTD.bo",
       "exchange": "BSE",
       "units": 15,
@@ -636,9 +646,9 @@
       "name": "Microsoft Corporation",
       "symbol": "MSFT",
       "exchange": "NASDAQ",
-      "units": 0.187365,
-      "avgPrice": 383.32,
-      "invested": 71.82
+      "units": 0.259837,
+      "avgPrice": 391.63,
+      "invested": 101.76
     },
     {
       "name": "AMAZON.COM, INC. (XNAS:AMZN)",
@@ -668,9 +678,9 @@
       "name": "Oracle",
       "symbol": "ORCL",
       "exchange": "NASDAQ",
-      "units": 0.275976,
-      "avgPrice": 148.2,
-      "invested": 40.9
+      "units": 0.46587,
+      "avgPrice": 162.75,
+      "invested": 75.82
     },
     {
       "name": "TMPV - Vignesh",
@@ -716,9 +726,9 @@
       "name": "FTSE Developed Market Index",
       "symbol": "VEA",
       "exchange": "NASDAQ",
-      "units": 0.349702,
-      "avgPrice": 64.57,
-      "invested": 22.93
+      "units": 0.561384,
+      "avgPrice": 67.51,
+      "invested": 37.9
     },
     {
       "name": "Movalue",
@@ -729,7 +739,7 @@
       "invested": 255.6
     },
     {
-      "name": "MOREALTY",
+      "name": "MOREALTY - Appa",
       "symbol": "MOREALTY.NS",
       "exchange": "NSE",
       "units": 11,
@@ -737,7 +747,7 @@
       "invested": 788.95
     },
     {
-      "name": "MOVALUE",
+      "name": "MOVALUE - Appa",
       "symbol": "MOVALUE.NS",
       "exchange": "NSE",
       "units": 27,
