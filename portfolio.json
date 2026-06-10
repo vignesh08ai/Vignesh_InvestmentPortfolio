@@ -73,11 +73,11 @@
     {
       "bank": "KMBF",
       "fdNumber": "9098",
-      "invested": 90000,
+      "invested": 99000,
       "rate": 10,
-      "startDate": "2025-06-08",
-      "maturityDate": "2026-06-07",
-      "maturityValue": 99000,
+      "startDate": "2026-06-08",
+      "maturityDate": "2027-06-07",
+      "maturityValue": 108000,
       "status": "Active"
     },
     {
