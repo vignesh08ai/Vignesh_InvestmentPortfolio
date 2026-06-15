@@ -684,8 +684,8 @@
     },
     {
       "name": "TMPV - Vignesh",
-      "symbol": "TMPV.BO",
-      "exchange": "BSE",
+      "symbol": "TMPV.NS",
+      "exchange": "NSE",
       "units": 62,
       "avgPrice": 352.21,
       "invested": 21837.07
