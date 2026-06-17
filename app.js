@@ -20,7 +20,9 @@ let _editType   = null;
    Set PROXY_URL to your deployed Google Apps Script URL
    e.g. 'https://script.google.com/macros/s/YOUR_ID/exec'
 ═══════════════════════════════════════════════════════ */
-const PROXY_URL = 'https://script.google.com/macros/s/AKfycbzX4oZ_fju7XuJoPWYSaj41Gr3XTZ_JcHu9mB9lDtdi2jUVQp72L_AU0_QsYKGkwRmEFQ/exec';  // ← PASTE YOUR APPS SCRIPT URL HERE
+// PROXY_URL is stored in localStorage so it survives file updates
+// Set it once via console: localStorage.setItem('proxy_url', 'YOUR_APPS_SCRIPT_URL')
+const PROXY_URL = localStorage.getItem('proxy_url') || '';
 
 const AMFI = 'https://www.amfiindia.com/spages/NAVAll.txt';
 
